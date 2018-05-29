@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    ul{
+      border: 1px solid #000;
+      width: 100px;
+      text-align: center;
+      display: none;
+      position: absolute;
+    }
+    li{
+      list-style: none;
+      border-bottom:1px solid #000;
+      height: 35px;
+      line-height: 35px;
+    }
+    li:hover{
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <ul id="ul1">
+      <li>设置待办</li>
+      <li>设置未读</li>
+      <li>设置已读</li>
+      <li>删除右键</li>
+  </ul>
+
+  <script>
+    var oUl = document.getElementById("ul1");
+    document.oncontextmenu = function(e){
+      oUl.style.display = "block";
+      oUl.style.top = e.clientY+"px";
+      oUl.style.left = e.clientX+"px";
+      // return false;
+      e.preventDefault();
+    }
+
+    var aLi = document.getElementsByTagName("li")
+    for(var i=0;i<aLi.length;i++){
+      aLi[i].index = i;
+      aLi[i].onclick = function(){
+        for(var j=0;j<aLi.length;j++){
+          aLi[j].className = "";
+        }
+        console.log(this.index);
+        this.className = "aa"
+        //console.log(this.innerHTML);
+        // console.log(this)
+
+      }
+    }
+    
+    // function foo(){
+    // console.log(this);  
+    // console.log(this.innerHTML);  
+    // }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="divarr">a
+    <span class="spanarr">11</span>
+    <span class="spanarr">22</span>
+    <div class="divarr testclass" id="test">f</div>
+  </div>
+  <div class="divarr">b</div>
+  <div class="divarr">c</div>
+  <div class="divarr">d</div>
+  <span class="divarr">e</span>
+  <span class="spanarr">33</span>
+  <script>
+    function getClass(cName,obj){
+      var thisObj = obj||document;
+      var thisArr = [];
+      var aSpan = thisObj.getElementsByTagName("*");
+      for(var i=0;i<aSpan.length;i++){
+        if(arrIn(aSpan[i].className,cName)){
+          thisArr.push(aSpan[i]);
+        }
+      }
+      console.log(thisArr);
+    }
+    
+    function arrIn(arr,str){
+      arr = arr.split(" ");
+      for(var i=0;i<arr.length;i++){
+        if(arr[i] == str){
+          return true;
+        }
+      }
+    }
+
+     
+
+
+    var oDiv = document.getElementsByClassName("divarr")[0]
+   //getClass("divarr",oDiv);
+
+
+    // function a(key){
+    //   if(key){
+    //     console.log(1)
+    //   }else{
+    //     console.log(2)
+    //   }
+    // }
+    // a(123)
+
+      if(document.getElementsByClassName){
+        console.log("2");
+      }
+
+  </script>
+</body>
+</html>

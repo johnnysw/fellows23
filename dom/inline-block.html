@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+
+    .a,.b,.c{
+      width: 300px;
+      height: 300px;
+      float: left;
+    }
+    .a{
+      background-color: red
+    }
+    .b{
+      background:blue;
+    }
+    .c{
+      background: yellow;
+    }
+    .d{
+      background:purple;
+    }
+    
+    .clearfix::after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div class="d clearfix">
+    <div class="a"></div>
+    <div class="b"></div>
+    <div class="c"></div>
+    
+  </div>
+  
+</body>
+</html>

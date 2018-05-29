@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      margin:0;
+      background: #000;
+    }
+    .container{
+      position: relative;
+      border:5px solid #fff;
+      width: 490px;
+      height: 170px;
+      /* overflow: hidden; */
+      margin:0 auto;
+    }
+    li{
+      color: #fff;
+      list-style: none;
+      height: 20px;
+      width: 20px;
+      background-color: #F90;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 20px;
+      float: left;
+      font-size: 12px;
+      margin: 0 5px;
+      opacity: 0.5;
+      
+    }
+    .btn-right .active{
+      background-color: red;
+      opacity: 1;
+    }
+    .btn-left{
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      z-index: 100;
+    }
+    .btn-right{
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      z-index: 100;
+    }
+    .content img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    .content .active{
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <img class="active" src="image/01.jpg" alt="">
+      <img src="image/02.jpg" alt="">
+      <img src="image/03.jpg" alt="">
+      <img src="image/04.jpg" alt="">
+      <img src="image/05.jpg" alt="">
+    </div>
+    <div class="btn-left">
+      <ul>
+        <li class="bl-btn">&lt;</li>
+        <li class="bl-btn">&gt;</li>
+      </ul>
+    </div>
+    <div class="btn-right">
+      <ul>
+        <li class="br-btn active">1</li>
+        <li class="br-btn">2</li>
+        <li class="br-btn">3</li>
+        <li class="br-btn">4</li>
+        <li class="br-btn">5</li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    var aImg = document.getElementsByTagName("img");
+    var aLbtn = document.getElementsByClassName("bl-btn");
+    var aRbtn = document.getElementsByClassName("br-btn");
+    var oContainer = document.getElementsByClassName("container")[0];
+    var nowIndex = 0;
+    var timer;
+    play();
+    oContainer.onmouseover = function(){
+      clearInterval(timer);
+    }
+    oContainer.onmouseout = function(){
+      play();
+    }
+
+    aLbtn[0].onclick = function(){
+      --nowIndex
+      if(nowIndex<0){
+        nowIndex = 4;
+      }
+      change(nowIndex);
+
+    }
+    aLbtn[1].onclick = function(){
+      ++nowIndex
+      if(nowIndex>4){
+        nowIndex = 0;
+      }
+      change(nowIndex);
+    }
+
+    for(var i=0;i<aRbtn.length;i++){
+      aRbtn[i].index = i;
+      aRbtn[i].onmouseover = function(){
+        change(this.index);
+      }
+    }
+    
+    function change(index){
+
+      nowIndex = index;
+      for(var j=0;j<aImg.length;j++){
+        aImg[j].className = "";
+        aRbtn[j].className = "br-btn";
+      }
+      aImg[index].className = "active"
+      aRbtn[index].className = "br-btn active";
+
+    }
+    
+    function play(){
+      timer = setInterval(function(){
+        if(nowIndex>=4){
+          nowIndex = 0;
+        }else{
+          nowIndex++
+        }
+        change(nowIndex)
+      },1000)
+    }
+    
+  </script>
+</body>
+</html>
