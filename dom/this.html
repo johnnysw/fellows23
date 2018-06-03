@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="btn">aaa</div>
+  <script>
+    // var a = "hello";
+    // function foo(){
+    //   var a = "world"
+    //   console.log(this.a);
+    // }
+    // foo();
+    // console.log(this.a);
+    // var name = "xiaohong"
+    // var obj ={
+    //   name:"xiaoming",
+    //   show:function(){
+    //     console.log(this.name)
+    //   }
+    // }
+    // obj.show();
+
+
+    var index = "1";  
+    var oBtn = document.getElementById("btn");
+    oBtn.index = "2";
+    oBtn.onclick = function(){
+
+      setInterval(function(){
+        console.log(this.index);
+      },1000) 
+      
+    }  
+
+     
+  </script>
+</body>
+</html>
