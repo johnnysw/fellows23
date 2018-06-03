@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  #container{
+    width: 200px;
+    height: 200px;
+    background: #ddd;
+    margin: 0 auto;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    margin-left: -100px;
+    margin-top:-100px;
+    text-align: center
+  }
+</style>
+<body>
+  <div id="container">
+    <h1>100</h1>
+    <button id="btn" class="btn1">开始</button>
+  </div>
+  <script>
+    var oBtn = document.getElementById("btn");
+    var oH1 = document.getElementsByTagName("h1")[0];
+    var timer;
+    var key = 1;
+    oBtn.onclick = function(){
+      
+      if(oBtn.innerText == "开始"){
+        oBtn.innerText = '暂停';
+        timer = setInterval(function(){
+          oH1.innerText--;
+        },1000);
+      }else if(oBtn.innerText == "暂停"){
+        oBtn.innerText = '开始';
+        clearInterval(timer);
+      }
+      
+    }
+
+  </script>
+</body>
+</html>

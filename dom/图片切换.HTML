@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+    .container{
+      width: 600px;
+      border: 1px solid #ddd;
+      margin: 0 auto;
+    }
+    .top-img img{
+      height: 220px;
+    }
+    .top-img{
+      text-align: center;
+      position: relative;
+    }
+    .bottom-img{
+      border-top: 1px solid #ddd;
+    }
+    .bottom-img ul li{
+      list-style: none;
+      float: left;
+      width: 149px;
+      border-right: 1px solid #ddd;
+      text-align: center
+    }
+    .bottom-img ul li:last-child{
+      border-right: 0;
+    }
+    .bottom-img li img{
+      width: 120px;
+    }
+    .clearfix::after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .step-btn{
+      width: 600px;
+      list-style: none;
+      position: absolute;
+      top: 50%;
+      margin-top: -25px;
+    }
+    .step-btn li{
+      height: 50px;
+      line-height: 50px;
+    }
+    .step-btn li:hover{
+      cursor: pointer;
+    }
+    .step-btn li:first-child{
+      float: left;
+    }
+    .step-btn li:last-child{
+      float: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-img">
+      <div>
+        <ul class="step-btn clearfix">
+          <li point="left" class="btns">&lt;</li>
+          <li point="right" class="btns">&gt;</li>
+        </ul>
+      </div>
+      <div>
+          <img id="show-img" src="image/slider1.jpg" alt="">
+      </div>
+    </div>
+    <div class="bottom-img">
+      <ul class="clearfix">
+        <li><img class="list-img" src="image/slider1.jpg" alt=""></li>
+        <li><img class="list-img" src="image/slider2.jpg" alt=""></li>
+        <li><img class="list-img" src="image/slider3.jpg" alt=""></li>
+        <li><img class="list-img" src="image/slider4.jpg" alt=""></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    var aListImg = document.getElementsByClassName("list-img");
+    var oImg = document.getElementById("show-img");
+    var aBtn = document.getElementsByClassName("btns");
+    var nowIndex = 0;
+
+    for(var j=0;j<aBtn.length;j++){
+      aBtn[j].onclick = function(){
+        var thisPoint = this.getAttribute("point");
+        if(thisPoint=="left"){
+          nowIndex--;
+        }else{
+          nowIndex++;
+        }
+        changeImg(nowIndex);
+      }
+    }
+    
+    function changeImg(index){
+      if(index<0){
+        nowIndex = 3;
+      }else if(index>3){
+        nowIndex = 0;
+      }
+      var thisImg = aListImg[nowIndex].getAttribute("src");
+      oImg.setAttribute("src",thisImg);
+    }
+
+    for(var i=0;i<aListImg.length;i++){
+      aListImg[i].index = i;
+      aListImg[i].onmouseover = function(){
+        nowIndex = this.index;
+        changeImg(nowIndex);
+      }
+    }
+  </script>
+</body>
+</html>
