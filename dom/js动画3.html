@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div{
+      width: 300px;
+      height: 60px;
+      background: red;
+      margin:30px 0;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+  <script>
+    var aDiv = document.getElementsByTagName("div");
+    var timer1,timer2;
+    //宽度增加
+    for(var i=0;i<aDiv.length;i++){
+      aDiv[i].onmouseover = function(){
+        clearInterval(this.timer2)
+        var that = this;
+        this.timer1 = setInterval(function(){
+          if(that.offsetWidth>600){
+            clearInterval(that.timer1);
+          }else{
+            that.style.width = that.offsetWidth + 10 +"px";
+          }
+        },50)
+      }
+    }
+    //宽度减小
+    for(var j=0;j<aDiv.length;j++){
+      aDiv[j].onmouseout = function(){
+        clearInterval(this.timer1);
+        var that = this
+        this.timer2 = setInterval(function(){
+          if(that.offsetWidth<300){
+            clearInterval(that.timer2);
+          }else{
+            that.style.width = that.offsetWidth - 10 +"px";
+          }
+        },50)
+      }
+    }
+  </script>
+</body>
+</html>
