@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .clearfix::after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+    body{
+      background: #000;
+    }
+    .container{
+      width: 490px;
+      height: 170px;
+      border: 5px solid #fff;
+      margin: 0 auto;
+      position: relative;
+    }
+    .content ul{
+      width: 2450px;
+      position: absolute;
+    }
+    .content ul li{
+      float: left;
+    }
+    .btn{
+      position: absolute;
+      z-index: 10;
+      bottom: 10px;
+      
+    }
+    .btn li{
+      float: left;
+      width: 20px;
+      height: 20px;
+      background: #F90;
+      margin-left: 5px;
+      border-radius: 50%;
+      color: #fff;
+      text-align: center;
+      line-height: 20px;
+      font-size: 12px;
+    }
+    .left-btn {
+      left: 10px;
+    }
+    .right-btn {
+      right: 10px;
+    }
+    .right-btn .active{
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <ul class="clearfix">
+        <li><img src="image/01.jpg" alt=""></li>
+        <li><img src="image/02.jpg" alt=""></li>
+        <li><img src="image/03.jpg" alt=""></li>
+        <li><img src="image/04.jpg" alt=""></li>
+        <li><img src="image/05.jpg" alt=""></li>
+      </ul>
+    </div>
+    <div class="btn left-btn">
+      <ul>
+        <li class="left">&lt;</li>
+        <li class="right">&gt;</li>
+      </ul>
+    </div>
+    <div class="btn right-btn">
+      <ul>
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    var aImg = document.querySelectorAll(".content ul")[0];
+    var aBtn = document.querySelectorAll(".right-btn li");
+    var aBtnDir = document.querySelectorAll(".left-btn li");
+    var oContent = document.querySelector(".container");
+    var nowIndex = 0;
+    var isRun = true;
+    var isTimer = true;
+    //下标按钮绑定事件
+    for(var i=0;i<aBtn.length;i++){
+      aBtn[i].index = i;
+      aBtn[i].onmouseover = function(){
+        if(isRun && nowIndex!=this.index){
+          changeImg(this.index);
+        }
+      }
+    }
+
+    //方向按钮绑定事件
+    for(var j=0;j<aBtnDir.length;j++){
+      aBtnDir[j].onclick = function(){
+        var thisDir = this.className;
+        console.log(thisDir);
+        
+        if(thisDir == "left"){
+          changeImg(nowIndex-1);
+        }else{
+          changeImg(nowIndex+1);
+        }
+      }
+    }
+
+    //图片切换
+    function changeImg(index){
+      console.log(index);
+      var direction = 1;//方向
+      index > nowIndex ? direction = -1 : direction = 1;//判断方向
+      nowIndex=index;//索引赋值
+      //判断边界值
+      if(index == -1){
+        nowIndex = 4;
+        direction = -1;
+      }else if(index == 5){
+        nowIndex = 0;
+        direction = 1;
+      }
+      isRun = false;//关闭事件
+      //图片切换动画效果
+      var timer = setInterval(function(){
+        aImg.style.left = aImg.offsetLeft + direction*10 + "px";
+        if(aImg.offsetLeft == -490*nowIndex){
+          clearInterval(timer);
+          isRun = true;//开启事件 
+        }
+      },16)
+      //下标按钮的选中状态
+      for(var i=0;i<aBtn.length;i++){
+        aBtn[i].className = "";
+      }
+      aBtn[nowIndex].className = "active"
+    }
+    
+    //滑入禁止动画
+    oContent.onmouseover = function(){
+      isTimer = false;
+    }
+    oContent.onmouseout = function(){
+      isTimer = true;
+    }
+
+    //定时函数
+    var timerLoop = setInterval(function(){
+      if(isRun && isTimer){
+        changeImg(nowIndex+1)
+      }
+    },1000)    
+  </script>
+</body>
+</html>
