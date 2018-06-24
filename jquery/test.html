@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="jquery-3.3.1.min.js"></script>
+  <script>
+  function  getData(url,type,done){
+    $.ajax({
+      type: type,
+      url: url,
+      data: "",
+      dataType: "json",
+      success: function(data){
+        done(data);
+      }
+    });
+  }
+  var thisUrl = "http://yapi.demo.qunar.com/mock/12057/tmall/listMenu";
+  getData(thisUrl,"get",done);
+  function done(data){
+    for(var i=0;i<data.listMenu.length;i++){
+      for(var j=0;j<data.listMenu[i].length;j++){
+        console.log(data.listMenu[i][j]);
+      }
+    }
+  }
+  </script>
+</body>
+</html>

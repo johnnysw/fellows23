@@ -92,22 +92,32 @@
     var aImg = document.querySelector(".clearfix");
     var aDir = document.querySelectorAll(".left-btn li");
     var globalIndex = 0;
-    var timer;
-    
+    var timmer;
+
+    //向下按钮
     aDir[1].onclick = function(){
+      change(globalIndex + 1);
+    }
+    //向上按钮
+    aDir[0].onclick = function(){
       change(globalIndex-1);
     }
 
-    aDir[1].onclick = function(){
-      change(globalIndex+1);
-    }
-    
     function change(index){
+      //判断方向
+      var direction = 1;
+      index > globalIndex ? direction =1 :direction = -1;
+      
+      if(index == -1){
+        aImg.style.left = -5*490 + "px";
+        index = 4;
+      }
+
       globalIndex = index;
-      timer = setInterval(function () {
-        aImg.style.left = aImg.offsetLeft - 10 + "px";
+      timmer = setInterval(function(){
+        aImg.style.left = aImg.offsetLeft - direction * 10 + "px";
         if(aImg.offsetLeft == -index*490){
-          clearInterval(timer);
+          clearInterval(timmer);
           if(index == 5){
             aImg.style.left = 0;
             globalIndex = 0;
@@ -115,7 +125,6 @@
         }
       },16)
     }
-    
   </script>
 </body>
 </html>
