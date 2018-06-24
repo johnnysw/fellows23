@@ -58,6 +58,9 @@
     .right-btn {
       right: 10px;
     }
+    .right-btn .active{
+      background: red;
+    }
   </style>
 </head>
 <body>
@@ -80,7 +83,7 @@
     </div>
     <div class="btn right-btn">
       <ul>
-        <li>1</li>
+        <li class="active">1</li>
         <li>2</li>
         <li>3</li>
         <li>4</li>
@@ -91,30 +94,80 @@
   <script>
     var aImg = document.querySelector(".clearfix");
     var aDir = document.querySelectorAll(".left-btn li");
+    var aNum = document.querySelectorAll(".right-btn li");
+    var oCon = document.querySelector(".container");  
     var globalIndex = 0;
-    var timer;
-    
+    var timmer,isRun = true,isTimer=true;
+
+    //向下按钮
     aDir[1].onclick = function(){
-      change(globalIndex-1);
+      if(isRun){
+        change(globalIndex + 1);
+      }
+    }
+    //向上按钮
+    aDir[0].onclick = function(){
+      if(isRun){
+        change(globalIndex - 1);
+      }
     }
 
-    aDir[1].onclick = function(){
-      change(globalIndex+1);
+    //数字按钮
+    for(var i=0;i<aNum.length;i++){
+      aNum[i].index = i;
+      aNum[i].onclick = function(){
+        if(isRun){
+          change(this.index);
+        }
+      }
     }
     
+    //定时切换
+    setInterval(function(){
+      if(isRun && isTimer){
+        change(globalIndex+1);
+      }
+    },1500)
+
+    oCon.onmouseover = function(){
+        isTimer = false;
+    }
+    oCon.onmouseout = function(){
+        isTimer = true;
+    }
+
+
     function change(index){
+      isRun = false;
+      //判断方向
+      var direction = 1;
+      index > globalIndex ? direction =1 :direction = -1;
+      
+      if(index == -1){
+        aImg.style.left = -5*490 + "px";
+        index = 4;
+      }
+
       globalIndex = index;
-      timer = setInterval(function () {
-        aImg.style.left = aImg.offsetLeft - 10 + "px";
+      timmer = setInterval(function(){
+        aImg.style.left = aImg.offsetLeft - direction * 10 + "px";
         if(aImg.offsetLeft == -index*490){
-          clearInterval(timer);
+          clearInterval(timmer);
           if(index == 5){
             aImg.style.left = 0;
             globalIndex = 0;
           }
+          
+          //数字按钮状态
+          for(var j=0;j<aNum.length;j++){
+            aNum[j].classList.remove("active");
+          }
+          aNum[globalIndex].classList.add("active"); 
+          isRun = true 
         }
       },16)
     }
+
     
   </script>
 </body>
