@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <ul id="list">
+
+    </ul>
+  </div>
+  <script>
+    var obj={
+      name:"xiaoming",
+      age:"20",
+      school:"linda"
+    }
+    // var arr = ["黑大","林大","农大","理工","工程"]
+    // var oList = document.getElementById("list");
+    // var htmlInner = "";
+    // for(var i=0;i<arr.length;i++){
+    //   htmlInner+="<li>"+ arr[i] +"</li>";
+    // }
+    // console.log(htmlInner);
+    // oList.innerHTML = htmlInner;
+    var testJson = JSON.stringify(obj)
+    console.log(testJson);
+    console.log(JSON.parse(testJson))
+  </script>
+</body>
+</html>

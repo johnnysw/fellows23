@@ -7,28 +7,51 @@
   <title>Document</title>
 </head>
 <body>
+  <ul id="test">
+    
+  </ul>
   <script src="jquery-3.3.1.min.js"></script>
   <script>
-  function  getData(url,type,done){
-    $.ajax({
-      type: type,
-      url: url,
+  // function  getData(url,type,done){
+  //   $.ajax({
+  //     type: type,
+  //     url: url,
+  //     data: "",
+  //     dataType: "json",
+  //     success: function(data){
+  //       done(data);
+  //     }
+  //   });
+  // }
+  var thisUrl = "http://yapi.demo.qunar.com/mock/12057/tmall/listMenu";
+  // getData(thisUrl,"get",done);
+  // function done(data){
+  //   for(var i=0;i<data.listMenu.length;i++){
+  //     for(var j=0;j<data.listMenu[i].length;j++){
+  //       console.log(data.listMenu[i][j]);
+  //     }
+  //   }
+  // }
+var thisHtml = "";
+  $.ajax({
+      type: "get",
+      url: thisUrl,
       data: "",
       dataType: "json",
       success: function(data){
-        done(data);
+        console.log(data.listMenu)
+        for(var i=0;i<data.listMenu.length;i++){
+          for(var j=0;j<data.listMenu[i].length;j++){
+            thisHtml+="<li>"+data.listMenu[i][j]+"</li>";
+          }
+        }
+        console.log(thisHtml)
+        var oTest = document.getElementById("test");
+        oTest.innerHTML = thisHtml;
       }
     });
-  }
-  var thisUrl = "http://yapi.demo.qunar.com/mock/12057/tmall/listMenu";
-  getData(thisUrl,"get",done);
-  function done(data){
-    for(var i=0;i<data.listMenu.length;i++){
-      for(var j=0;j<data.listMenu[i].length;j++){
-        console.log(data.listMenu[i][j]);
-      }
-    }
-  }
+    
+
   </script>
 </body>
 </html>
