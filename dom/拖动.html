@@ -25,15 +25,23 @@
     oDiv.onmousedown = function(e){
       var topDistance = e.clientY - this.offsetTop;
       var leftDistance = e.clientX - this.offsetLeft;
+      var windowWidth = document.documentElement.clientWidth;
+      var windowHeight = document.documentElement.clientHeight;
+      
       document.onmousemove = function(e){
         var moveLeft = e.clientX - leftDistance;
         var moveTop = e.clientY - topDistance;
-        console.log(moveLeft,moveTop);
+        if(moveLeft<=0){
+          moveLeft = 0;
+        }
+        if(moveTop<=0){
+          moveTop = 0;
+        }
         oDiv.style.left = moveLeft+"px";
         oDiv.style.top = moveTop+"px";
       }
     }
-    oDiv.onmouseup = function(){
+    document.onmouseup = function(){
       document.onmousemove = null;
     }
   </script>

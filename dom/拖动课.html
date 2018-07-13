@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding:0;
+    }
+    #box{
+      width: 200px;
+      height: 200px;
+      background: red;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+
+  </div>
+  <script>
+    var oBox = document.getElementById("box");
+    oBox.onmousedown = function(e){
+      var moveLeft = e.clientX - this.offsetLeft;
+      var moveTop = e.clientY - this.offsetTop;
+      var that = this;
+      document.onmousemove = function(e){
+        
+        oBox.style.left = e.clientX - moveLeft+"px";
+        oBox.style.top = e.clientY -moveTop +"px";
+        console.log("当前位置：",e.clientX,e.clientY);
+        console.log("点距边框距离",moveLeft,moveTop);
+        console.log("红框位置",that.offsetLeft,that.offsetTop);
+      }
+    }
+    document.onmouseup = function(){
+      document.onmousemove = null;
+    }
+  </script>
+</body>
+</html>

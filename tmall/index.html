@@ -44,12 +44,18 @@
       </div>
       <div class="search">
         <div class="search-bar">
-          <input type="text">
-          <button>搜索</button>
+          <input type="text" id="myText">
+          <button id="test">搜索</button>
         </div>
         <div class="hot-word"></div>
       </div>
     </div>
   </div>
+  <script>
+    var aa = document.getElementById("test");
+    aa.onclick = function(){
+      document.getElementById("myText").focus();
+    }
+  </script>
 </body>
 </html>

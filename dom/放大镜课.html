@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding:0;
+    }
+    .small-img{
+      width: 400px;
+      height: 400px;
+      float: left;
+      position: relative;
+    }
+    .small-img img{
+      width: 400px;
+    }
+    .small-img .move{
+      height: 200px;
+      width: 200px;
+      background: rgba(255,255,255,0.5);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .big-img{
+      width: 400px;
+      height: 400px;
+      float: left;
+      overflow: hidden;
+      margin-left: 20px;
+      position: relative;
+    }
+    #bigimg{
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div class="small-img">
+    <img src="image/niu.png" alt="">
+    <div class="move"></div>
+  </div>
+  <div class="big-img">
+    <img src="image/niu.png" alt="" id="bigimg">
+  </div>
+  <script>
+    var oMove = document.querySelector(".move");
+    var oSmallIMg = document.querySelector(".small-img");
+    var oBigImg = document.getElementById("bigimg");
+    oSmallIMg.onmousemove=function(e){
+      var moveLeft = e.clientX - 100;
+      var moveTop = e.clientY -100;
+      var maxNum = 200;
+      if(moveLeft<=0){
+        moveLeft = 0;
+      }
+      if(moveTop<=0){
+        moveTop = 0;
+      }
+      if(moveLeft>=maxNum){
+        moveLeft = maxNum;
+      }
+      if(moveTop>=maxNum){
+        moveTop=maxNum;
+      }
+      oMove.style.left = moveLeft +"px";
+      oMove.style.top = moveTop +"px";
+      oBigImg.style.left = -moveLeft*2 +"px";
+      oBigImg.style.top = -moveTop*2 +"px";
+    }
+  </script>
+</body>
+</html>
