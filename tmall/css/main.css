@@ -135,3 +135,41 @@ a{
   color: red;
 }
 /* site-nav end*/
+/* header start*/
+.header{
+  position: relative;
+}
+.header-content{
+  width: 1230px;
+  margin: 0 auto;
+  position: relative;
+}
+.logo{
+  position: absolute;
+  left: 0;
+  top:0;
+}
+.logo img{
+  width: 240px;
+}
+.search{
+  width: 620px;
+  height: 108px;
+  /* margin: 50px auto 0; */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.search-bar{
+  border: 2px solid #FF0036;
+  width: 625px;
+  height: 40px;
+}
+.search-bar input{
+  height: 40px;
+  width: 490px;
+  background:none;
+  outline: none;
+  border:none;
+}
+/*header end*/

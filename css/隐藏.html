@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div style="display: none">1</div>
+  <div id="box1" style="opacity: 0;">2</div>
+  <div id="box2" style="visibility: hidden;">3</div>
+  <script>
+    var obox1 = document.getElementById("box1");
+    var obox2 = document.getElementById("box2");
+
+    obox1.onclick = function(){
+      alert("box1");
+    }
+    obox2.onclick = function(){
+      alert("box2");
+    }
+
+  </script>
+</body>
+</html>
