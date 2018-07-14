@@ -3,8 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        div{
+            width: 50%;
+            padding-bottom: 50%;
+            background: yellow;
+            height: 0;
+        }
+        #box1{
+            background:red;
+        }
+        #box2{
+            background:blue;
+        }
+    </style>
 </head>
 <body>
-
+    <div id="box1">
+        <div id="box2">
+            <div id="box3"></div>
+        </div>
+    </div>
+    
+<script>
+ var box1 = document.getElementById("box1");
+ var box2 = document.getElementById("box2");
+ var box3 = document.getElementById("box3");
+ box1.addEventListener("click",function(){
+     console.log("buhuo1");
+ },true);
+ box1.addEventListener("click",function(e){
+     console.log("maopao1");
+     e.stopPropagation();
+ },false);
+ box2.addEventListener("click",function(){
+     console.log("buhuo2");
+ },true);
+ box2.addEventListener("click",function(e){
+     console.log("maopao2");
+     e.stopPropagation();
+ },false);
+ box3.addEventListener("click",function(){
+     console.log("buhuo3");
+ },true);
+ box3.addEventListener("click",function(e){
+     console.log("maopao3");
+     e.stopPropagation();
+ },false);
+    // box1.attachEvent("onclick",function(){
+    //     console.log("box1");
+    //     window.event.cancelBubble = true;
+    // })
+    // box2.attachEvent("onclick",function(){
+    //     console.log("box2");
+    //     window.event.cancelBubble = true;
+    // })
+    // box3.attachEvent("onclick",function(){
+    //     console.log("box3");
+    //     window.event.cancelBubble = true;
+    // })
+ 
+</script>
 </body>
 </html>
