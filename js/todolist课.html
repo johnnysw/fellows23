@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <input type="text" id="info">
+    <input type="date" id="info-date">
+    <button id="addBtn">添加</button>
+  </div>
+  <table border="1" cellspacing="0">
+    <thead>
+      <tr>
+        <th>序号</th>
+        <th>内容</th>
+        <th>事件</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody id="tb">
+      <tr>
+        <td>1</td>
+        <td>上课</td>
+        <td>2018-07-10</td>
+        <td><button class="delBtn">删除</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <script>
+    var oAddBtn = document.getElementById("addBtn");
+    var aDelBtn = document.getElementsByClassName("delBtn");
+    var oTB = document.getElementById("tb");
+    var thisHtml = "";
+    var index = 2;
+    oAddBtn.onclick = function(){
+      var info = document.getElementById("info").value;
+      var infoDate = document.getElementById("info-date").value;
+      thisHtml = '<tr>'+
+        '<td>'+(index++)+'</td>'+
+        '<td>'+info+'</td>'+
+        '<td>'+infoDate+'</td>'+
+        '<td><button class="delBtn">删除</button></td>'+
+      '</tr>'
+      oTB.innerHTML += thisHtml; 
+    }
+    oTB.onclick =function(e){
+      e.target.parentElement.parentElement.remove();
+    }
+  </script>
+</body>
+</html>
