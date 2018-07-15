@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body,html{
+      height: 100%;
+    }
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .box{
+      height: 320px;
+      width: 480px;
+      position: relative;
+    }
+    .box img{
+      position: absolute;
+      border:10px solid #ddd;
+      box-shadow: 2px 2px 25px rgba(0,0,0,.5);
+      transition: all 1s ease;
+    }
+    .box img:nth-child(1){
+      transform: rotate(30deg);
+    }
+    .box img:nth-child(2){
+      transform: rotate(-30deg);
+    }
+    .box img:hover{
+      
+      transform: rotate(0);
+      z-index: 2;
+      box-shadow: 5px 5px 30px rgba(0,0,0,.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <img src="image/img01.jpg" alt="">
+    <img src="image/img02.jpg" alt="">
+  </div>
+</body>
+</html>
