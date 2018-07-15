@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* span:nth-child(3){
+      color:red;
+    } */
+    /* p:last-of-type{color:#f00;} */
+    .demo span:nth-of-type(2) { color: #f00; }
+    .demo::after{
+      content: "123"
+    }
+    p{width:200px;padding:5px 10px;border:1px solid #ddd;font:14px/1.5 simsun,serif,sans-serif;}
+    p::first-line {font-size:40px;font-weight:bold;}
+  </style>
+</head>
+<body>
+    <!-- <h1>1</h1>
+    <div>2</div>
+    <span>3</span> -->
+    <!-- <div>
+        <h2>我是一个标题</h2>
+        <p>我是一个p1</p>
+        <p>我是一个p2</p>
+        <p>我是一个p3</p>
+        <div>1111</div>
+      </div> -->
+      <div class="demo">
+          <span>span1</span>
+          <p>
+            <span>span2</span>
+            <span>span3</span>
+          </p>
+          <span>span4</span>
+        </div>
+
+        <p>今天，阳光明媚，晴空万里，非常适合户外活动，如踏青、远足之类的。长期坐在办公室的同学们要多注意运动。</p>
+</body>
+</html>
