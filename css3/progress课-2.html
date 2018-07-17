@@ -11,6 +11,7 @@
       height: 20px;
       width: 200px;
       border-radius: 5px;
+      overflow: hidden;
     }
     .content{
       height: 20px;
@@ -35,11 +36,18 @@
         var num = document.querySelector(".num");
         var contentNum = 0;
         btn.onclick = function(){
+          content.style.width =0;
+          contentNum=0;
           requestAnimationFrame(run);
         }
         function run(){
-          console.log(1);
-          requestAnimationFrame(run)
+          contentNum ++;
+          num.innerHTML = contentNum;
+          content.style.width = content.offsetWidth + 2 +"px";
+          if(contentNum < 100){
+            requestAnimationFrame(run)
+          
+          }
         }
       </script>
 </body>
