@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{
+      border: 1px solid #000;
+      height: 20px;
+      width: 200px;
+      border-radius: 5px;
+    }
+    .content{
+      height: 20px;
+      background: blue;
+      width: 0;
+      color: red;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="content">
+        <span class="num">0</span>%
+    </div>
+    
+  </div>
+  <button id="btn">开始</button>
+  <script>
+    var btn = document.getElementById("btn");
+    var content = document.querySelector(".content");
+    var num = document.querySelector(".num");
+    var timer=null;
+    var contentNum = 0;
+    btn.onclick = function(){
+      run();
+      
+    }
+    function run(){
+      timer = setInterval(function(){
+        contentNum++;
+        num.innerHTML = contentNum;
+        content.style.width = content.offsetWidth+2+"px";
+        if(contentNum == 100){
+          clearInterval(timer);
+        }
+      },16)
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .content{
+      height: 20px;
+      width: 500px;
+      background: #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    div{
+      width: 0px;
+      height: 20px;
+      background: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+      <div id="box"></div>
+  </div>
+  
+  <button id="btn">开始</button>
+  <script>
+    var box1 = document.getElementById("box");
+    var btn = document.getElementById("btn");
+    var progress = 0;
+
+    function run(){
+      box1.style.width = box1.offsetWidth+5+"px";
+      progress++;
+      if(progress<100){
+        requestAnimationFrame(run);
+      }
+    }
+    btn.onclick = function(){
+      progress = 0;
+      box1.style.width = "1px";
+      requestAnimationFrame(run)
+    }
+  </script>
+</body>
+</html>

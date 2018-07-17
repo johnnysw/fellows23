@@ -22,8 +22,14 @@
     .box img{
       position: absolute;
       border:10px solid #ddd;
+      height: 320px;
+      width: 480px;
       box-shadow: 2px 2px 25px rgba(0,0,0,.5);
-      transition: all 1s ease;
+      /* transition: width 1s ease ,height 1s ease; */
+      transition-property: width;
+      transition-duration: 1s; 
+      transition-timing-function: ease-in-out;
+      transition-delay: 1s;
     }
     .box img:nth-child(1){
       transform: rotate(30deg);
@@ -32,9 +38,10 @@
       transform: rotate(-30deg);
     }
     .box img:hover{
-      
-      transform: rotate(0);
+      /* transform: scale(1.5); */
       z-index: 2;
+      /* height: 500px; */
+      width: 500px;
       box-shadow: 5px 5px 30px rgba(0,0,0,.5);
     }
   </style>
