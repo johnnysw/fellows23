@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding:0;
+    }
+    li{
+      list-style: none;
+    }
+    .box{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -100px;
+      margin-top: -100px;
+      height: 200px;
+      width:200px;
+      border: 1px dashed #000;
+    }
+    ul{
+      width: 200px;
+      height: 200px;
+      border: 1px solid #000;
+      border-radius: 50% 50%;
+      position: relative;
+    }
+    li{
+      width: 2px;
+      height: 5px;
+      background: #000;
+      position: absolute;
+      left: 50%;
+      transform-origin: 0 100px;
+    }
+    ul li:nth-child(5n+1){
+      height: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <ul id="ul">
+      
+    </ul>
+  </div>
+  <script>
+    var oUl = document.getElementById("ul");
+    var thisHtml = "";
+    for(var i=0;i<60;i++){
+      thisHtml +="<li style='transform:rotate("+i*6+"deg)'></li>";
+    }
+    oUl.innerHTML = thisHtml;
+  </script>
+</body>
+</html>
