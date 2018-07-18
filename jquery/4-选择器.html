@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .test{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+    <!-- <div><p>Hello in a paragraph</p></div>
+ 
+  <div>Hello again! (with no paragraph)</div>
+  <script src="jquery-3.3.1.min.js"></script>
+<script>$("div:has(p)").addClass("test");</script> -->
+
+<table border="1">
+    <tr><td>Value 1</td><td></td></tr>
+    <tr><td>Value 2</td><td></td></tr>
+  </table>
+  <script src="jquery-3.3.1.min.js"></script>
+  <script>$("td:parent").css("color","red");</script>
+</body>
+</html>

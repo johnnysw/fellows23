@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    [class ~=tt][type="text"]{
+      /* background: red; */
+    }
+  </style>
+</head>
+<body>
+  <input type="text" class = "bb tt" id="box">
+  <input type="text" class = "aaa">
+  <script src="jquery-3.3.1.min.js"></script>
+  <script>
+    var oBox = document.getElementById("box");
+    console.log(oBox.id);
+    // oBox.style.width = oBox.offsetWidth + 100+"px";
+    // oBox.focus();
+    // oBox.blur();
+    // oBox.setAttribute("data-id","abc");
+    // console.log(oBox.getAttribute("data-id"));
+    $("#box").attr("data-id","abc");
+    console.log($("#box").attr("data-id"));
+    
+    
+  </script>
+</body>
+</html>

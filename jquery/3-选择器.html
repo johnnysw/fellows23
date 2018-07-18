@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div{
+      width: 100%;
+      height: 800px;
+    }
+    #box1{
+      background: red;
+    }
+    #box2{
+      background: blue;
+    }
+    #box3{
+      background: yellow;
+    }
+    /* #box3:target{
+      background: #000;
+    } */
+  </style>
+</head>
+<body>
+  <p>
+    <a href="#box1">box1</a>
+    <a href="#box2">box2</a>
+    <a href="#box3">box3</a>
+  </p>
+  <div id="box1"></div>
+  <div id="box2"></div>
+  <div id="box3"></div>
+  <script src="jquery-3.3.1.min.js"></script>
+  <script>
+    setInterval(function(){
+      $("div:target").css("background","green");
+    },2000)
+  </script>
+</body>
+</html>
