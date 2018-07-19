@@ -13,9 +13,16 @@
   <input type="checkbox" name="test">4
   <script src="jquery-3.3.1.min.js"></script>
   <script>
-    $("[type='checkbox']").on("click",function(){
-      console.log($(this).prop("checked"));
-    })
+    // $("[type='checkbox']").on("click",function(){
+    //   console.log($(this).prop("checked"));
+    // })
+    $("[type='checkbox']:eq(2)").prop("checked",true);
+    $("[type='checkbox']:eq(1)").attr("checked",true);
+    console.log($("[type='checkbox']:eq(1)").attr("name"));
+    console.log($("[type='checkbox']:eq(1)").prop("checked"));
+    
+    
+    
   </script>
 </body>
 </html>

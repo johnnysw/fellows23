@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .test{
+      font-size: 30px;
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">hello</div>
+  <script src="jquery-3.3.1.min.js"></script>
+  <script>
+    // $("#box").addClass("test");
+    // // $("#box").removeClass("test");
+    // console.log($("#box").hasClass("test"));
+    $("#box").on("click",function(){
+      $(this).toggleClass("test");
+    })
+  </script>
+</body>
+</html>
