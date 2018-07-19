@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <!-- <ul>
+        <li>list item 1</li>
+        <li>list item 2</li>
+        <li>list item 3</li>
+        <li>list item 4</li>
+        <li><span>123</span></li>
+      </ul>
+      <span>abc</span> -->
+
+
+      <ul>
+        <li>
+          <strong>list</strong> item 1 -
+          one strong tag
+        </li>
+        <li>
+          <strong>list</strong> item 
+          <strong>2</strong> - two 
+          <span>strong tags</span>
+        </li>
+        <li>list item 3</li>
+        <li>list item 4</li>
+        <li>list item 5</li>
+        <li>list item 6</li>
+      </ul>
+
+
+      <script src="jquery-3.3.1.min.js"></script>
+      <script>
+        // $("li").eq(2).css("color","red");
+        // $("li").last().css("color","red");
+        // $("li").has("ul").css("color","red");
+        // $("li").not(":odd").css("color","red");
+        // $('li').filter(':even').css('background-color', 'red');
+        // console.log($("span","li"));
+        $('li').filter(function(index) {
+          return $('strong', this).length == 1;
+        }).css('background-color', 'red');
+      </script>
+</body>
+</html>

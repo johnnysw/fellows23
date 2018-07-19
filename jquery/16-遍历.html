@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>list item 1</li>
+        <li>list item 2</li>
+        <li>list item 3</li>
+      </ul>
+      <div class="div1">
+        div1
+        <div class="div2">
+          div2
+          <div class="div3"> div3</div>
+        </div>
+      </div>
+      <p>a paragraph</p>
+      <span><span>123121123 <!--adfsdfsd--></span></span>
+      <script src="jquery-3.3.1.min.js"></script>
+      <script>
+        // $('li').add("p").add("span").css('background-color', 'red');
+        // console.log($("span").contents());
+        $(".div1").find(".div2").find(".div3").css("color","red").end().end().css("color","blue");
+      </script>
+</body>
+</html>

@@ -7,18 +7,14 @@
   <title>Document</title>
 </head>
 <body>
-  <div id="box">
-    hello fellow23
-  </div>
-  <div id="box2"></div>
+  <input type="checkbox">1
+  <input type="checkbox" checked="checked">2
+  <input type="checkbox">3
+  <input type="checkbox">4
   <script src="jquery-3.3.1.min.js"></script>
   <script>
-    var ht = $("<p>abcd</p>");
-    // $("#box").prepend(ht);
-    // ht.appendTo("#box");
-    $("#box").html("<p>abcd</p>");
-    $("#box2").html("<p>abcd</p>");
-    $("#box").on("dblclick",function(e){
+    $("input:checkbox").on("click",function(){
+      console.log($(this).is(":checked"));
       
     })
   </script>

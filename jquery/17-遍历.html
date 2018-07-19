@@ -7,20 +7,21 @@
   <title>Document</title>
 </head>
 <body>
-  <div id="box">
-    hello fellow23
-  </div>
-  <div id="box2"></div>
+  <ul id="box">
+    <li>1</li>
+    <li>2</li>
+    <li id="cen">
+      <ul>
+        <li class="abc">abc</li>
+      </ul>
+    </li>
+    <li>4</li>
+    <li>5</li>     
+  </ul>
   <script src="jquery-3.3.1.min.js"></script>
   <script>
-    var ht = $("<p>abcd</p>");
-    // $("#box").prepend(ht);
-    // ht.appendTo("#box");
-    $("#box").html("<p>abcd</p>");
-    $("#box2").html("<p>abcd</p>");
-    $("#box").on("dblclick",function(e){
-      
-    })
+    console.log($("#box").find(".abc").text());
+    
   </script>
 </body>
 </html>

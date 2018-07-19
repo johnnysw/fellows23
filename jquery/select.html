@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    select{
+      height: 300px;
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+  <select multiple="multiple" name="" id="sel">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select>
+  <script src="jquery-3.3.1.min.js"></script>
+  <script>
+    $("#sel").on("change",function(){
+      // if($("option").eq(2).is(":selected")){
+      //   console.log("yes");
+        
+      // }
+    })
+  </script>
+</body>
+</html>
