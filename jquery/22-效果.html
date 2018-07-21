@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 200px;
+      height: 200px;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <button class="fadein">fadein</button>
+  <button class="fadeout">fadeout</button>
+  <button class="fadetoggle">fadetoggle</button>
+  <button class="slidedown">slidedown</button>
+  <button class="slideup">slideup</button>
+  <button class="slidetogg">slidetogg</button>
+  <button class="animate">animate</button>
+  <div class="box"></div>
+  <script src="jquery-3.3.1.min.js"></script>
+  <script>
+    $(".fadein").on("click",function(){
+      $(".box").fadeIn();
+    })
+    $(".fadeout").on("click",function(){
+      $(".box").fadeOut();
+    })
+    $(".fadetoggle").on("click",function(){
+      $(".box").fadeToggle();
+    })
+    $(".slidedown").on("click",function(){
+      $(".box").slideDown(3000);
+    })
+    $(".slideup").on("click",function(){
+      $(".box").slideUp("fast");
+    })
+    $(".slidetogg").on("click",function(){
+      $(".box").stop(false,false);
+      $(".box").slideToggle();
+    })
+    $(".animate").on("click",function(){
+      $(".box").animate({
+        width:400,
+        height:400
+      },1000,"swing",function(){
+        console.log("done");
+      });
+    })
+  </script>
+</body>
+</html>

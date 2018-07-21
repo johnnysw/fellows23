@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 100px;
+      height: 100px;
+      background: red;
+    }
+    .dn{
+      display: none
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <button id="btn">隐藏</button>
+  <button id="show">显示</button>
+  <button id="togg">切换</button>
+  <script src="jquery-3.3.1.min.js"></script>
+  <script>
+    $("#btn").on("click",function(){
+      $(".box").hide();
+    })
+    $("#show").on("click",function(){
+      $(".box").show();
+    })
+    $("#togg").on("click",function(){
+      $(".box").toggle();
+    })
+  </script>
+</body>
+</html>
