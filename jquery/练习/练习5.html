@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style type="text/css">
+    body{
+      font-size:16px;
+    }
+    table{
+      border:1px solid black;
+      border-collapse:collapse;
+      width:400px;
+    }
+    table td,th{
+      width:50%;
+      border:1px solid black;
+      height:30px;
+    }
+    tbody th{
+      background-color:#abc;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+        <tr>
+            <th colspan="2"> 鼠标点击表格就可以编辑</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td class="editable">张三</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td class="editable">李四</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td class="editable">王五</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td class="editable">赵六</td>
+        </tr>
+    </tbody>
+  </table>
+  <script src="../jquery-3.3.1.min.js"></script>
+  <script>
+
+    $(".editable").on("click",function(){
+      if($(this).children("input").length == 0){
+        var inpObj = $("<input type='text' />");
+        inpObj.val(this.innerText);
+        $(this).empty();
+        $(this).append(inpObj);
+        inpObj.focus();
+      }
+    })
+
+    // $(".editable").on("blur","input",function(){
+    //   var father = $(this).parent("td");
+    //   // console.log($(this).val());
+    //   father.text($(this).val())
+    //   $(this).remove();
+      
+    // })
+
+    $(".editable").on("focusout",function(){
+      var child = $(this).children("input");
+      $(this).text(child.val());
+    })
+
+    $(".editable").on("keyup",function(e){
+      if(e.which == 13){
+        $(this).trigger("focusout");
+      }
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // $(".editable").on("dblclick",function(){
+    //   var inputObj = $("<input type='text'/>")
+    //   var that = this;
+    //   if($(this).children("input[type='text']").length == 0){
+    //     inputObj.val($(this).text());
+    //     $(this).text("").append(inputObj);
+    //     inputObj.focus();
+    //   }
+    // })
+
+    // $(".editable").on("focusout",function(){
+    //   $(this).text($(this).find("input").val());
+    // })
+
+    // $(".editable").on("keyup",function(e){
+    //   if(e.which == 13){
+    //     $(this).trigger("focusout");
+    //   }
+    // })
+
+
+
+    // $(".editable").on("click",function(){
+    //   var inputObj = $("<input type='text'/>")
+    //   var that = this;
+    //   if($(this).children("input[type='text']").length == 0){
+    //     $(":input").blur();
+    //     inputObj.val($(this).text());
+    //     $(this).text("").append(inputObj);
+    //   }
+    //   inputObj.on("keyup",function(e){
+    //     if(e.which == 13){
+    //       $(this).trigger("blur");
+    //     }
+    //   })
+    //   inputObj.on("blur",function(){
+    //     $(that).text(inputObj.val());
+    //   })
+    // })
+  </script>
+</body>
+</html>
