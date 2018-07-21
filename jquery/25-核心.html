@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">自定义函数</button>
+  <script src="jquery-3.3.1.min.js"></script>
+  <script>
+    jQuery.fn.extend({
+      fellow:function(){
+        console.log("fellow23");
+        
+      }
+    })
+
+
+
+
+    $("#btn").fellow();
+    // var person = {
+    //   name:"123",
+    //   fun:function(){
+
+    //   }
+    // }
+    // person.fun()
+  </script>
+</body>
+</html>
+
+

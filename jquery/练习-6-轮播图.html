@@ -62,20 +62,22 @@
 </head>
 <body>
   <div class="slider">
-    <div class="slider-panner sp-1 active">
-      <div>
-          <img src="https://img.alicdn.com/simba/img/TB1fN3WA7CWBuNjy0FaSutUlXXa.jpg" alt="">
-      </div>
-    </div>
-    <div class="slider-panner sp-2">
-        <div>
-            <img src="https://img.alicdn.com/tps/i4/TB1o_JiAVOWBuNjy0FiSutFxVXa.jpg" alt="">
-        </div>
-    </div>
-    <div class="slider-panner sp-3">
-        <div>
-            <img src="https://img.alicdn.com/simba/img/TB114X1gBjTBKNjSZFuSuv0HFXa.jpg" alt="">
-        </div>
+    <div>
+        <div class="slider-panner sp-1 active">
+            <div>
+                <img src="https://img.alicdn.com/simba/img/TB1fN3WA7CWBuNjy0FaSutUlXXa.jpg" alt="">
+            </div>
+          </div>
+          <div class="slider-panner sp-2">
+              <div>
+                  <img src="https://img.alicdn.com/tps/i4/TB1o_JiAVOWBuNjy0FiSutFxVXa.jpg" alt="">
+              </div>
+          </div>
+          <div class="slider-panner sp-3">
+              <div>
+                  <img src="https://img.alicdn.com/simba/img/TB114X1gBjTBKNjSZFuSuv0HFXa.jpg" alt="">
+              </div>
+          </div>
     </div>
     <div class="list-btn">
       <ul>
@@ -85,20 +87,32 @@
       </ul>
     </div>
   </div>
+  <script src="jquery-3.3.1.min.js"></script>
   <script>
-    var aSP = document.querySelectorAll(".slider-panner");
-    var aBtn = document.querySelectorAll(".list-btn li");
-    var index = 0;
+    var thisIndex=0;
+    isrun = true;
     setInterval(function(){
-      aSP[index].classList.remove("active");
-      aBtn[index].classList.remove("active");
-      if(index==2){
-        index = -1;
+      if(isrun){
+        ++thisIndex;
+        run()
       }
-      aSP[++index].classList.add("active");
-      aBtn[index].classList.add("active");
-      
     },1000);
+    function run(){
+      if(thisIndex>=3){
+        thisIndex = 0;
+      }
+      $(".slider-panner").eq(thisIndex).addClass("active").siblings().removeClass("active");
+      $(".list-btn li").eq(thisIndex).addClass("active").siblings().removeClass("active");
+    }
+    $(".slider").hover(function(){
+      isrun=false;
+    },function(){
+      isrun=true;
+    })
+    $(".list-btn li").on("mouseover",function(){
+      thisIndex = $(this).index();
+      run();
+    })
   </script>
 </body>
 </html>
