@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+    body{
+      background: #343636;
+    }
+    .clearfix::after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+    li{
+      list-style: none;
+    }
+    .contains{
+      width: 750px;
+      margin:0 auto;
+    }
+    .h-date{
+      background: #fff;
+      color: #000;
+      font-size: 30px;
+      height: 94px;
+      line-height: 94px;
+      text-indent: 20px;
+    }
+    .contains .empty{
+      background: #fff;
+    }
+    .contains .selected{
+      background: red;
+    }
+    .contains .sold{
+      background: blue;
+    }
+    .h-sign{
+      padding:20px;
+      border-bottom: 1px solid #555555;
+    }
+    .h-sign span{
+      display: inline-block;
+      height: 35px;
+      width: 45px;
+      line-height: 35px;
+      font-size: 25px;
+      color: #fff;
+      vertical-align: middle;
+    }
+    .h-sign span:nth-child(even){
+      width: 75px;
+    }
+    .content li{
+      float: left;
+      height: 35px;
+      width: 45px;
+      background: #fff;
+      margin:10px 5px;
+    }
+    .content ul li:nth-child(6){
+      margin-left: 205px;
+    }
+    .s-bar{
+      border-top:1px solid #555;
+    }
+    .s-bar .text{
+      height: 45px;
+      color: #fff;
+      font-size: 25px;
+      padding: 20px;
+    }
+    .s-bar .text span:nth-child(1){
+      float: left;
+    }
+    .s-bar .text span:nth-child(2){
+      float: right;
+    }
+    .adds li{
+      float: left;
+      padding: 10px;
+      margin:20px 10px;
+      font-size: 35px;
+      font-weight: bolder;
+      color: #cfa972;
+      border:1px solid #cfa972
+    }
+    .footer{
+      height: 108px;
+      background:#4a4c52;
+    }
+    .footer .f-left{
+      float: left;
+      font-size: 20px;
+      color: #fff;
+      line-height: 108px;
+      text-indent: 30px;
+    }
+    .footer .f-right{
+      float: right;
+      height: 108px;
+      width: 270px;
+      color: #333;
+      text-align: center;
+      font-size: 35px;
+      line-height: 108px;
+      background: #c1a55f;
+    }
+  </style>
+</head>
+<body>
+  <div class="contains">
+    <div class="header">
+      <div class="h-date">
+        今天1月6日 13:20
+      </div>
+      <div class="h-sign">
+        <span class="empty"></span>
+        <span>可选</span>
+        <span class="selected"></span>
+        <span>已选</span>
+        <span class="sold"></span>
+        <span>已售</span>
+      </div>
+    </div>
+    <div class="content">
+      <ul class="clearfix">
+        <li></li>
+        <li></li>
+        <li class="selected"></li>
+        <li></li>
+        <li class="sold"></li>
+        <li></li>
+        <li></li>
+        <li class="selected"></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <ul class="clearfix">
+        <li></li>
+        <li class="sold"></li>
+        <li></li>
+        <li></li>
+        <li class="selected"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li class="selected"></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="s-bar">
+      <div class="text">
+        <span>已选座位</span>
+        <span>最多可选择5个座位</span>
+      </div>
+      <div class="adds">
+        <ul class="clearfix">
+          
+        </ul>
+      </div>
+    </div>
+    <div class="footer clearfix">
+      <div class="f-left">
+        <span>合计：</span>
+        <span>¥99</span>
+        <span>¥99*1</span>
+      </div>
+      <div class="f-right">
+        确认选座
+      </div>
+    </div>
+  </div>
+  <script src="jquery-3.3.1.min.js"></script>
+  <script>
+    var cListHtml = "";
+    var htmlArr = [];
+    for(var i=0;i<10;i++){
+      cListHtml+="<ul class='clearfix'>"
+      for(var j=0;j<10;j++){
+        if(Math.random()>0.7){
+          cListHtml+="<li class='sold' sign='"+(i+1)+"排"+(j+1)+"座'></li>"
+        }else{
+          cListHtml+="<li class='empty' sign='"+(i+1)+"排"+(j+1)+"座'></li>"
+        }
+        
+      }
+      cListHtml+="</ul>"
+    }
+    $(".content").html(cListHtml);
+    $(".content li").on("click",function(){
+      if(htmlArr.length>=5 && !$(this).hasClass("selected")){
+        alert("超出范围！")
+      }else{
+        $(this).toggleClass("selected").toggleClass("empty");
+        // console.log($(this).parent("ul").index()+1);
+        // console.log($(this).index()+1);
+        if($(this).hasClass("empty")){
+          removeArr($(this).attr("sign"))
+        }else{
+          htmlArr.push($(this).attr("sign"));
+        }
+        addSignHtml();
+      }
+      
+    })
+    function removeArr(key){
+      for(var i=0;i<htmlArr.length;i++){
+        if(htmlArr[i]==key){
+          htmlArr.splice(i,1);
+        }
+      }
+    }
+
+    function addSignHtml(){
+      var thisHtml = "";
+      for(var i=0;i<htmlArr.length;i++){
+        thisHtml+="<li>"+htmlArr[i]+"</li>"
+      }
+      $(".adds ul").html(thisHtml);
+    }
+  </script>
+</body>
+</html>
