@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .contains{
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .header,.nav,.footer{
+      height: 100px;
+      width: 100%;
+      background: #8c8c8c;
+      margin-bottom: 10px;
+      text-align: center;
+      line-height: 100px;
+      font-size: 25px;
+      /* clear: both; */
+    }
+    .clearfix::after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .image{
+      width: 100%;
+      padding-top: 56%;
+      background-image: url(img/01_s.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+    }
+    .contetn{
+      width: 100%;
+    }
+    .contetn .c-left{
+      float: left;
+      height: 300px;
+      width: 65%;
+      background: blue;
+      margin-bottom: 10px;
+      text-align: center;
+      display: table;
+    }
+    .contetn p{
+      display: table-cell;
+      vertical-align: middle;
+    }
+    .contetn .c-right{
+      height: 300px;
+      float:right;
+      width: 30%;
+      background: red;
+      margin-bottom: 10px;
+      text-align: center;
+      display: table;
+    }
+    @media (max-width:600px){
+      .contains .contetn div{
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="contains">
+    <div class="header">页头</div>
+    <div class="nav">导航</div>
+    <div class="image">
+      <!-- <img src="img/01_s_2x.jpg" alt=""> -->
+    </div>
+    <div class="contetn clearfix">
+      <div class="c-left">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras pretium quam quis magna facilisis, eget feugiat nisi lacinia.</p>
+      </div>
+      <div class="c-right">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras pretium quam quis magna facilisis, eget feugiat nisi lacinia.</p>
+      </div>
+    </div>
+    <div class="footer">页脚</div>
+  </div>
+</body>
+</html>
