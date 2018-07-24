@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* .box2{
+      font-size:30px ;
+      width: 10em;
+      height: 10em;
+      background: red;
+    }
+    .box1{
+      font-size: 20px;
+    } */
+    html{
+      font-size: 30px;
+    }
+    .box2{
+      font-size:30px ;
+      width: 10rem;
+      height: 10rem;
+      background: red;
+    }
+    .box1{
+      /* font-size: 30px; */
+    }
+    @media (orientation: landscape) {
+      /* 横屏 */
+      .box2{
+        background: blue;
+      }
+    }
+    @media (orientation: portrait) {
+      /* 竖屏 */
+      .box2{
+        background: yellow;
+      }
+    }
+    @media (-webkit-device-pixel-ratio:3){
+      /* dpr */
+      .box2{
+        background: green;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box1">
+      <div class="box2"></div>
+  </div>
+  
+</body>
+</html>

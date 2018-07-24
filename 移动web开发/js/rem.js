@@ -15,7 +15,7 @@
         tid = setTimeout(refreshRem, 10);
     }, false);
     win.addEventListener('pageshow', function(e) {
-        if (e.persisted) {
+        if (e.persisted) {//判断是否加载缓存
             clearTimeout(tid);
             tid = setTimeout(refreshRem, 10);
         }
