@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="http://at.alicdn.com/t/font_747925_gfn8hpij3z5.css">
+  <style>
+    *{
+      margin:0;
+    }
+    .middle,.left,.right{
+      height: 100px;
+      float: left;
+      position: relative;
+    }
+    .contains{
+      padding: 0 200px;
+      min-width: 300px;
+    }
+    .middle{
+      background:blue;
+      width: 100%;
+    }
+    .right{
+      background: red;
+      width: 200px;
+      margin-left: -200px;
+      right: -200px;
+    }
+    .left{
+      background: yellow;
+      width: 200px;
+      margin-left:-100%;
+      left: -200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="contains">
+    <div class="middle">middle心情惬意，来杯咖啡吧 ☕<i class="iconfont icon-feijichang"></i></div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+  </div>
+  
+</body>
+</html>
