@@ -34,9 +34,12 @@
     #box1{
       display: table-row;
       height: 100%;
+      
+    }
+    #box2{
+      height: 100%;
       background: yellow;
     }
-    
 
 
 
@@ -45,7 +48,9 @@
 <body>
   <div id="box">
     <div style="height: 100px;background: red">top</div>
-    <div id="box1"></div>
+    <div id="box1">
+      <div id="box2"></div>
+    </div>
     <div style="height: 100px;background: blue">bottom</div>
   </div>
 </body>
