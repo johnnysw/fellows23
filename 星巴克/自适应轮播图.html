@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+    li{
+      list-style: none;
+      float: left;
+      width: 25%;
+    }
+    li img{
+      width: 100%;
+    }
+    .hero{
+      width: 70%;
+      overflow: hidden;
+    }
+    .slider-list{
+      width: 400%;
+    }
+    
+    @media (min-width: 641px){
+      .mobile-hidden{
+        display: block !important;
+      }
+      .show-mobile{
+        display: none !important;
+      }
+    }
+    @media (max-width: 640px){
+      .mobile-hidden{
+        display: none !important;
+      }
+      .show-mobile{
+        display: block !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <ul class="slider-list">
+      <li>
+          <img src="https://www.starbucks.com.cn/assets/images/featured/2018summer3/kv-mooncake.jpg" class="mobile-hidden">
+          <img src="https://www.starbucks.com.cn/assets/images/featured/2018summer3/kv-mooncake-mobile.jpg" class="show-mobile">
+      </li>
+      <li>
+          <img src="https://www.starbucks.com.cn/assets/images/featured/2018summer3/kv-bev.jpg" class="mobile-hidden">
+          <img src="https://www.starbucks.com.cn/assets/images/featured/2018summer3/kv-bev-mobile.jpg" class="show-mobile">
+      </li>
+      <li>
+          <img src="https://www.starbucks.com.cn/assets/images/featured/2018summer3/fp-cold-foam.jpg" class="mobile-hidden">
+          <img src="https://www.starbucks.com.cn/assets/images/featured/2018summer3/fp-cold-mobile.jpg" class="show-mobile">
+      </li>
+      <li>
+          <img src="https://www.starbucks.com.cn/assets/images/featured/2018summer3/kv-mooncake.jpg" class="mobile-hidden">
+          <img src="https://www.starbucks.com.cn/assets/images/featured/2018summer3/kv-mooncake-mobile.jpg" class="show-mobile">
+      </li>
+    </ul>
+  </div>
+  <button id="btn">下一张</button>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script>
+    var nowIndex = 0;
+    $("#btn").on("click",function(){
+      nowIndex ++;
+      left = $("li").eq(0).width()*-nowIndex;
+      console.log(left,nowIndex);
+      
+      $(".slider-list").css({
+        "transform":"translateX("+left+"px)",
+        "transition":"all 1s ease"
+      });
+      setTimeout(function(){
+        if(nowIndex==3){
+          nowIndex = 0;
+          $(".slider-list").css({
+            "transition":"none",
+            "transform":"translateX(0)"
+          });
+        }
+      },1000)
+      
+    }); 
+  </script>
+</body>
+</html>

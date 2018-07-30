@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+    .box{
+      width: 70%;
+      overflow: hidden;
+    }
+    li{
+      list-style: none;
+      display: inline-block;
+      height: 100px;
+      width: 150px;
+      background: red;
+      margin-right: 10px;
+    }
+    .content{
+      white-space: nowrap;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      margin-bottom: -20px;
+      padding-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="content" data-test="123">
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+      </ul>
+    </div>
+  </div>
+  <button id="prev">上一张</button>
+  <button id="next">下一张</button>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script>
+    var scrollBar = $(".content")[0];
+    var timer = null;
+    $("#next").on("click",function(){
+      run("left")
+    });
+    $("#prev").on("click",function(){
+      run("right")
+    });
+    function run(dire){
+      var scrollLeft = dire == "left" ? scrollBar.scrollLeft + 300 : scrollBar.scrollLeft - 300;
+      $(".content").animate({
+        scrollLeft:scrollLeft
+      },500,function(){
+        showArrow();
+      });
+    }
+    function showArrow(){
+      $("#prev").add("#next").show();
+      if(scrollBar.scrollLeft <= 0){
+        $("#prev").hide();
+      }else if(scrollBar.scrollLeft >= scrollBar.scrollWidth-scrollBar.clientWidth){
+        $("#next").hide();
+      }
+    }
+    $(".content").on("scroll",function(){
+      // clearTimeout(timer);
+      // timer = setTimeout(function(){
+      //   showArrow();
+      // },1000)
+      if($(this).data("timer")){
+        clearTimeout($(this).data("timer"));
+      }
+      $(this).data("timer",setTimeout(function(){showArrow()},1000));
+      
+    })
+  </script>
+</body>
+</html>

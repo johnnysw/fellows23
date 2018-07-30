@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+    .out-box{
+      width: 70%;
+      overflow: hidden;
+      position: relative;
+    }
+    .inner-box{
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      margin-bottom: -20px;
+      padding-bottom: 20px;
+      transition: all 1s ease;
+    }
+    .content{
+      
+    }
+    ul{
+      list-style: none;
+    }
+    li{
+      display: inline-block;
+      height: 100px;
+      width: 150px;
+      background: red;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="out-box">
+    <div class="inner-box" id="scrollBar">
+      <div class="content">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+          <li>6</li>
+          <li>7</li>
+          <li>8</li>
+          <li>9</li>
+          <li>10</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <button id="left">左滚动</button>
+  <button id="right">右滚动</button>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script>
+    var leftBtn = $("#left");
+    var rightBtn = $("#right");
+    var scrollBar = $("#scrollBar")[0];
+    var timer = null;
+
+    leftBtn.on("click",function(){
+      run("left");
+    });
+
+    rightBtn.on("click",function(){
+      run("right");
+    });
+
+    $(scrollBar).on("scroll",function(e){
+      if($(this).data("scrollTimeout")){
+        clearTimeout($(this).data("scrollTimeout"))
+      }
+      $(this).data("scrollTimeout",setTimeout(showBtn,1000));
+    })
+
+    function run(dir){
+      var scrollLeft = dir == 'left' ? scrollBar.scrollLeft-300 : scrollBar.scrollLeft+300;
+      $("#scrollBar").animate({
+        scrollLeft:scrollLeft
+      },1000,function(){
+        showBtn();
+      })
+    }
+    
+    function showBtn(){
+      leftBtn.add(rightBtn).show();
+      if(scrollBar.scrollLeft <=0){
+        leftBtn.hide();
+      }else if(scrollBar.scrollLeft >=scrollBar.scrollWidth - scrollBar.clientWidth){
+        rightBtn.hide();
+      }
+    }
+
+    // rightBtn.onclick = function(){
+    //   dir = "right" ;
+    //   scrollStrop = scrollBar.scrollLeft + 300 <=scrollBar.scrollWidth-scrollBar.clientWidth ? scrollBar.scrollLeft + 300 : scrollBar.scrollWidth-scrollBar.clientWidth;
+    //   console.log(scrollStrop);
+    //   run();
+     
+    // }
+
+    // function run(){
+    //   var scrollLeft = dir == 'right' ? 10 : -10;
+    //   scrollBar.scrollLeft += scrollLeft;
+    //   if(scrollBar.scrollLeft*(screenLeft/10)<=scrollStrop*(screenLeft/10)){
+    //     requestAnimationFrame(run);
+    //   }
+    // }
+
+    // leftBtn.onclick = function(){
+    //   dir = "left" ;
+    //   scrollStrop = scrollBar.scrollLeft - 300 >=scrollBar.scrollWidth? scrollBar.scrollLeft - 300 : scrollBar.clientWidth;
+    //   console.log(scrollStrop);
+    //   run();
+    // }
+
+  </script>
+</body>
+</html>
