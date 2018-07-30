@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box1{
+      width: 200px;
+      height: 200px;
+      background: red;
+    }
+    .box2{
+      width: 100px;
+      height: 100px;
+      background: blue;
+      position: absolute;
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+    <div class="box2"></div>
+  <div class="box1">
+    <input type="text">
+  </div>
+  
+  <script src="js/zepto.js"></script>
+  <script src="js/touch.js"></script>
+  <!-- <script src="js/fastclick.js"></script> -->
+  <script>
+  // $(function(){
+  //   FastClick.attach(document.body);
+  // }); 
+  $(".box2").on("tap",function(){
+    console.log("tap");
+  })
+  $(".box2").click(function(){
+    console.log("click");
+  })
+  
+  
+  </script>
+</body>
+</html>

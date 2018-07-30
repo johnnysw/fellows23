@@ -5,37 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>.delete { display: none; }</style>
 </head>
 <body>
   <div id="id">123</div>
+  
+
+<ul id=items>
+  <li>List item 1 <span class=delete>DELETE</span></li>
+  <li>List item 2 <span class=delete>DELETE</span></li>
+</ul>
   <button class="ddd" id="aa">1343</button>
   <script src="js/zepto.js"></script>
   <script src="js/touch.js"></script>
   <script>
-    var t1,t2;
-    $(".ddd").swipeLeft(function() {
-    t1 = Date.now();
-    // console.log(123);
-    // alert("11");
-    console.log("t1");
-    
-    });
-    $('.ddd').click(function () {
-    t2 = Date.now();
-    console.log("t2");
-    
-    });
-    var od = document.getElementById("aa");
-    od.addEventListener("touchstart",function(){
-      console.log("start");
-    });
-    od.addEventListener("touchend",function(){
-      console.log("end");
+    $('#items li').swipe(function(){
+      $('.delete').hide()
+      $('.delete', this).show()
     })
-    od.addEventListener("touchmove",function(){
-      console.log("move");
+
+    // delete row on tapping delete button
+    $('.delete').tap(function(){
+      $(this).parent('li').remove()
+    })
+
+
+    // var t1,t2;
+    // $(".ddd").swipeLeft(function() {
+    // t1 = Date.now();
+    // // console.log(123);
+    // // alert("11");
+    // console.log("t1");
+    
+    // });
+    // $('.ddd').click(function () {
+    // t2 = Date.now();
+    // console.log("t2");
+    
+    // });
+    // var od = document.getElementById("aa");
+    // od.addEventListener("touchstart",function(){
+    //   console.log("start");
+    // });
+    // od.addEventListener("touchend",function(){
+    //   console.log("end");
+    // })
+    // od.addEventListener("touchmove",function(){
+    //   console.log("move");
       
-    })
+    // })
     
     
   </script>
