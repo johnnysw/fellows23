@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var obj ={
+    //   name:"xiaoming"
+    // }
+
+    // var jstr =JSON.stringify(obj)
+    // console.log(JSON.stringify(obj));
+    // console.log(JSON.parse(jstr));
+    
+    var obj1= {
+      name:"xiaoming",
+      age:"20",
+      school:"linda",
+      teacher:{
+        name:"zhangsan",
+        age:"40"
+      }
+    }
+    
+
+    // function clones(obj){
+    //   var obj2={}
+    //   for(key in obj){
+    //     if(typeof obj[key] == "object"){
+    //       obj2[key] = clones(obj[key])
+    //     }else{
+    //       obj2[key] = obj[key]
+    //     }
+    //   }
+    //   return obj2
+    // }
+
+    
+    // var obj3 =  clones(obj1);
+    // obj1.teacher.name= "lisi";
+    // console.log(obj3);
+
+    var obj4 = JSON.parse( JSON.stringify(obj1));
+    obj1.teacher.name= "lisi";
+    console.log(obj4);
+    
+    
+    
+    // // var obj2 = obj1;
+    // var obj2={}
+    // obj2.name = obj1.name
+    // obj2.age = obj1.age
+    // obj2.school = obj1.school
+
+    // obj1.name = "xiaohong"
+
+    // console.log(obj2);
+    
+  </script>
+</body>
+</html>
