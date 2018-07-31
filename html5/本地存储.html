@@ -14,20 +14,36 @@
     // console.log(document.cookie);
     
     function setCookie(key,value,expires){
-
+      var timer = new Date();
+      timer.setDate(timer.getDate()+expires);
+      document.cookie = key+"="+value+";expires="+timer.toUTCString();  
     }
 
     function getCookie(key){
-
+      var cookieStr = document.cookie;
+      var thisArr = cookieStr.split(";");
+      for(var i=0;i<thisArr.length;i++){
+        if(thisArr[i].split("=")[0].trim()==key){
+          return thisArr[i].split("=")[1].trim()
+        }
+      }
     }
 
     function delCookie(key){
-
+      var timer = new Date();
+      timer.setDate(timer.getDate()-1);
+      document.cookie = key+"=;expires="+timer.toUTCString();  
     }
-
-    var str = "a=b=c"
-    console.log(str.split("="));
+    setCookie("school","linda",1);
+    // delCookie("school");
+    console.log(getCookie("school"));
+     
+    // var str = "a = b = c";
+    // var arr2 = [];
+    // arr2=str.split("=");
+    // console.log("is="+arr2[1].trim()+";");
     
+  
     
 
     
