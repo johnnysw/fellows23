@@ -18,7 +18,7 @@
   </style>
 </head>
 <body>
-  <ul>
+  <ul id="oul" data-test="11" data-test1="bb">
     <li>1</li>
     <li>2</li>
     <li>3</li>
@@ -40,5 +40,10 @@
     <li>19</li>
     <li>20</li> 
   </ul>
+  <script>
+    var oul = document.getElementById("oul");
+    console.log(oul.dataset.test);
+    
+  </script>
 </body>
 </html>

@@ -7,6 +7,25 @@
   <title>Document</title>
 </head>
 <body>
-  <input type="time">
+  <button id="btn">变换</button>
+  <script>
+    var testobj = {};
+    var btn = document.getElementById("btn");
+    btn.onclick = function(){
+      var rand = Math.random();
+      var num = Math.ceil(Math.random()*10);
+      history.pushState(num,"");
+      // location.hash = rand;
+      // testobj[location.hash]=num;
+    }
+    // window.onhashchange = function(){
+    //   console.log(testobj[location.hash]);
+      
+    // }
+    window.onpopstate = function(e){
+      console.log(e.state);
+      
+    }
+  </script>
 </body>
 </html>
