@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #can{
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="can"></canvas>
+  <script>
+    var oCan = document.getElementById("can");
+    var sign = oCan.getContext("2d");
+    sign.lineWidth=2;
+    sign.strokeStyle = "#fff";
+    
+    oCan.onmousedown =function(e){
+      sign.beginPath();
+      sign.moveTo(e.clientX,e.clientY);
+      oCan.onmousemove =function(e){
+        sign.lineTo(e.clientX,e.clientY);
+        sign.stroke();
+      }
+      oCan.onmouseup = function(){
+        oCan.onmousemove = null;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // var ocan = document.getElementById("can");
+    // var sign = ocan.getContext("2d");
+    // sign.lineWidth = 2;
+    // sign.strokeStyle = '#fff'
+
+    // ocan.onmousedown = function(e){
+    //   sign.beginPath();
+    //   sign.moveTo(e.clientX,e.clientY);
+    //   ocan.onmousemove = function(e){
+    //     sign.lineTo(e.clientX,e.clientY);
+    //     sign.stroke();
+    //   }
+    // }
+  </script>
+</body>
+</html>
