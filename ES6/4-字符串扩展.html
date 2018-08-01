@@ -9,9 +9,9 @@
 <body>
   <div id="box"></div>
   <script>
-    var obox = document.getElementById("box");
-    var a=1;
-    var b=2;
+    // var obox = document.getElementById("box");
+    // var a=1;
+    // var b=2;
 
     // var str = a+"+"+b+"="+(a+b)+
     // "hello"+
@@ -30,11 +30,31 @@
     // console.log(str.startsWith("world"));
     // console.log(str.endsWith("world"));
     
-    let str = "hello";
+    // let str = "hello";
     // console.log(str.padStart(3,"xy"));
     // console.log(str.padEnd(10,"xy"));
 
     // console.log(str.repeat(2));
+    var str1 = "hello world";
+    var str2 = "world";
+
+    String.prototype.sw=function(str2){
+      if(this.indexOf(str2)==0){
+        return true;
+      }
+      return false;
+    }
+    String.prototype.ew = function(str2){
+      if(this.indexOf(str2)== this.length-str2.length){
+        return true;
+      }
+      return false;
+    }
+
+    console.log(str1.ew(str2));
+    
+
+    
     
     
       
