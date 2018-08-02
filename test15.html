@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var obj = {
+    //   birth: 1990,
+    //   getAge: function (year) {
+    //   var b = this.birth; // 1990
+    //   var fn = function (y){return y - this.birth}; // this.birth仍是1990
+    //   return fn.call({birth:2000}, year);
+    //   }
+    // };
+    // console.log(obj.getAge(2015)); // 25  
+      // let a = 10;
+      // let obj = {
+      //   a:"aaa",
+      //   show:()=>{
+      //     console.log(this);
+          
+      //   }
+      // }
+      // obj.show();
+
+      let arr = [1,2,3,4,5,6,8,9];
+      //   console.log(arr.copyWithin(3,0,2));
+
+      var result = arr.findIndex(function(val,index,arr1){
+        console.log(val,index,arr);
+        return val > 7;
+            
+        })
+        console.log(result);
+        
+  </script>
+</body>
+</html>
