@@ -1,0 +1,84 @@
+@charset "UTF-8";
+/*多行注释
+*/
+/*!强制注释*/
+#obox {
+  width: 1px;
+}
+
+.div {
+  color: #ff0;
+}
+.div .box1 {
+  color: #ff0;
+}
+.div:hover {
+  font-size: 20px;
+}
+.div-heaer {
+  font-weight: bold;
+}
+
+.div2 {
+  background-color: #ff0;
+  background-repeat: no-repeat;
+  background-image: url(xx.jpg);
+  border-left-color: #ff0;
+  border-left-width: 1px;
+  border-right-color: #f0f;
+  border-right-width: 2px;
+}
+
+.div3 {
+  font-size: 16px;
+}
+
+.div4, .div7 {
+  font-weight: bolder;
+}
+
+.div5 {
+  width: 1000px;
+  height: 100px;
+}
+
+.div6 {
+  width: 1000px;
+  height: 2000px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.div8 {
+  width: 100px;
+}
+
+.div7 {
+  color: #ff0;
+}
+
+.div9 {
+  height: 100px;
+}
+
+.div10 {
+  height: 200px;
+}
+
+.div11 {
+  height: 1000px;
+}
+
+.div12 {
+  width: 50px;
+  font-size: 10px/10px;
+}
+
+/*# sourceMappingURL=index.css.map */

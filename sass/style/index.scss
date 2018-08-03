@@ -1,0 +1,76 @@
+/*多行注释
+*/
+//单行注释
+/*!强制注释*/
+$color:#ff0;
+$name:width;
+#obox{
+  #{$name}:1px
+}
+.div{
+  color: $color;
+  .box1{
+    color: $color;
+  }
+  &:hover{
+    font-size: 20px
+  }
+  &-heaer{
+    font-weight: bold;
+  }
+}
+
+.div2{
+  background:{
+    color: #ff0;
+    repeat:no-repeat;
+    image:url(xx.jpg)
+  }
+  border:{
+    left:{
+      color: #ff0;
+      width: 1px;
+    };
+    right: {
+      color: #f0f;
+      width: 2px;
+    };
+  }
+}
+.div3{
+  font-size: 16px;
+}
+.div4{
+  font-weight: bolder;
+}
+
+@mixin mx($w,$h:100px) {
+  width: $w;
+  height: $h;
+}
+.div5{
+  @include mx(1000px)
+}
+.div6{
+  @include mx(1000px,2000px)
+}
+@import "base"; 
+
+.div7{
+  @extend .div4;
+  color: #ff0
+}
+
+.div9{
+  height: 200px - 100
+}
+.div10{
+  height: 100px + 100px;
+}
+.div11{
+  height: 100px*10;
+}
+.div12{
+  width: (100px) / 2;
+  font-size: 10px/10px
+}

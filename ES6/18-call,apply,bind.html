@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var aa = "123"
+    //  function foo(name,age,school){
+    //    console.log(this.aa);
+    //    console.log(name);
+    //    console.log(age);
+    //    console.log(school);
+       
+    //  } 
+    //  foo("lisi","20");
+    //  var obj = {
+    //    aa:"abcd"
+    //  }
+    // foo.call(obj,"zhangsan","30","heida");
+    // foo.apply(obj,["zhangsan","30","linda"]);
+    // var foo2 = foo.bind(obj,"lisi","30");
+    // foo2("ligong")
+
+      // function foo(){
+      //   console.log(Array.from(arguments));
+
+        
+      // }
+      // var obj={
+      //   name:"zhangsan"
+      // }
+      // foo(obj,"20","heida");
+
+      // Function.prototype.bind2 = function(){
+      //   var _this = this;
+      //   let args = Array.from(arguments);
+      //   let obj = args[0];
+      //   return function(){
+      //     let bindArgs = Array.from(arguments);
+      //     let allArgs = args.slice(1).concat(bindArgs)
+      //     _this.call(obj,...allArgs);
+      //   }
+      // }
+      // function foo(name,age){
+      //   console.log(this.school);
+      //   console.log(name);
+      //   console.log(age);
+      // }
+      // let obj={
+      //   school:"linda"
+      // }
+      // let foo2 = foo.bind2(obj);
+      // foo2("zhangsan","20");
+      
+      Function.prototype.bind2 =function(){
+        let obj = Array.from(arguments)[0];
+        let args = Array.from(arguments).slice(1);
+        let _this = this;
+        return function(){
+          let bindArgs = Array.from(arguments);
+          let allArgs = args.concat(bindArgs)
+          _this.call(obj,...allArgs);
+        }
+      }
+
+      function foo(name,age){
+        console.log(this.school);
+        console.log(name);
+        console.log(age);
+      }  
+      let obj = {
+        school:"linda"
+      }
+
+      let foo2 = foo.bind2(obj);
+      
+      foo2("lisi","20")
+
+  </script>
+</body>
+</html>
