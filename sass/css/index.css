@@ -2,6 +2,11 @@
 /*多行注释
 */
 /*!强制注释*/
+/*!作者lisi*/
+#div20 {
+  color: #000;
+}
+
 #obox {
   width: 1px;
 }
@@ -79,6 +84,110 @@ li {
 .div12 {
   width: 50px;
   font-size: 10px/10px;
+}
+
+.div13 {
+  background-image: url("aa.jpg");
+}
+
+.div14 {
+  color: #6666ff;
+}
+
+.div15 {
+  color: #000099;
+}
+
+.div16 {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.div17 {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.div18 {
+  color: #fff;
+}
+
+.div19 {
+  color: blue;
+}
+
+.div-contetn-1 {
+  width: "1px";
+}
+
+.div-contetn-2 {
+  width: "2px";
+}
+
+.div-contetn-3 {
+  width: "3px";
+}
+
+.div-contetn-4 {
+  width: "4px";
+}
+
+.div-contetn-5 {
+  width: "5px";
+}
+
+.div-a {
+  background: #000;
+}
+
+.div-b {
+  background: #000;
+}
+
+.div-c {
+  background: #000;
+}
+
+.div-d {
+  background: #000;
+}
+
+.div-footer-0 {
+  background: #000;
+}
+
+.div-footer-1 {
+  background: #000;
+}
+
+.div-footer-2 {
+  background: #000;
+}
+
+.div-footer-3 {
+  background: #000;
+}
+
+.div-footer-4 {
+  background: #000;
+}
+
+.div-footer-5 {
+  background: #000;
+}
+
+.div-footer-6 {
+  background: #000;
+}
+
+.div-footer-7 {
+  background: #000;
+}
+
+.div-footer-8 {
+  background: #000;
+}
+
+.div-footer-9 {
+  background: #000;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -2,6 +2,12 @@
 */
 //单行注释
 /*!强制注释*/
+$user:"lisi";
+$xze:div20;
+/*!作者#{$user}*/
+##{$xze}{
+  color: #000
+}
 $color:#ff0;
 $name:width;
 #obox{
@@ -74,3 +80,55 @@ $name:width;
   width: (100px) / 2;
   font-size: 10px/10px
 }
+$num:'aa';
+.div13{
+  background-image: url($num+'.jpg');
+}
+.div14{
+  color:lighten( rgb(0,0,255),20%);
+}
+.div15{
+  color:darken( rgb(0,0,255),20%);
+}
+.div16{
+  color:opacify(rgba(0,0,0,.5),.3); 
+}
+.div17{
+  color: transparentize(rgba(0,0,0,.5),.3);
+}
+
+
+$m:(light: #000, dark: #fff);
+
+.div18{
+  color: map-get($m,dark);
+}
+@function foo($key){
+  @if($key=="1"){
+    @return red;
+  }@else{
+    @return blue;
+  }
+ }
+ .div19{
+   color: foo("3")
+ }
+
+ @for $var from 1 through 5 {
+   .div-contetn-#{$var}{
+      width: $var+"px";
+   }
+ }
+$lista: a b c d;
+ @each $var in $lista {
+   .div-#{$var}{
+     background: #000;
+   }
+ }
+ $i:0;
+ @while ($i<10) {
+   .div-footer-#{$i}{
+     background: #000;
+   }
+   $i:$i+1;
+ }
