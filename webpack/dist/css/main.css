@@ -1,0 +1,38 @@
+.box3 {
+  color: red;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.box2 {
+  height: 200px;
+  width: 200px;
+  background: url(../images/5d0bb00c6b9fb0658c640290a84fe08f.jpg);
+}
+
+::-webkit-input-placeholder {
+  color: gray;
+}
+
+:-ms-input-placeholder {
+  color: gray;
+}
+
+::-ms-input-placeholder {
+  color: gray;
+}
+
+::placeholder {
+  color: gray;
+}
+
+#div1 {
+  color: aqua;
+}
+
+.div10 {
+  font-size: 10px;
+}

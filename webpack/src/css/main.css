@@ -1,0 +1,25 @@
+*{
+  margin:0;
+  padding:0;
+}
+.box2{
+  height: 200px;
+  width: 200px;
+  background:url(../img/img02.jpg);
+}
+::placeholder{
+  color: gray
+}
+
+.aa10{
+  font-weight: bold
+}
+a{
+  text-decoration: none;
+}
+#div1{
+  color: aqua
+}
+.div10{
+  font-size: 10px;
+}

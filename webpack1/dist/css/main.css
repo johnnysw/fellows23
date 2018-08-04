@@ -1,0 +1,32 @@
+.box2 {
+  color: blue;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.imgs {
+  width: 100px;
+  height: 100px;
+  background-image: url(../images/5d0bb00c6b9fb0658c640290a84fe08f.jpg);
+  border-radius: 10px;
+  display: flex;
+}
+
+::-webkit-input-placeholder {
+  color: gray;
+}
+
+:-ms-input-placeholder {
+  color: gray;
+}
+
+::-ms-input-placeholder {
+  color: gray;
+}
+
+::placeholder {
+  color: gray;
+}
