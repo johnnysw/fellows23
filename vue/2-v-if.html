@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div v-if="isIF">
+      isIf
+    </div>
+    <!-- <div v-else-if="elseIF">
+      else if
+    </div>
+    <div v-else>
+      else
+    </div> -->
+
+    <div v-show="isShow">
+      isShow
+    </div>
+
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el:"#app",
+      data:{
+        isIF:false,
+        elseIF:false,
+        isShow:false
+      }
+    })
+  </script>
+</body>
+</html>

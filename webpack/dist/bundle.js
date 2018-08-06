@@ -1,3 +1,4 @@
+/*! 唯创网讯 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -116,7 +117,7 @@ eval("// removed by extract-text-webpack-plugin\n\n//# sourceURL=webpack:///./sr
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _main = __webpack_require__(/*! ./css/main.css */ \"./src/css/main.css\");\n\nvar _main2 = _interopRequireDefault(_main);\n\nvar _index = __webpack_require__(/*! ./css/index.scss */ \"./src/css/index.scss\");\n\nvar _index2 = _interopRequireDefault(_index);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar a = \"hello\";\nvar box = document.getElementById(\"box\");\nbox.innerHTML = \"fellow23\";\n\nvar foo = function foo(name, age) {\n  var aaa = name;\n};\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("\n\nvar _main = __webpack_require__(/*! ./css/main.css */ \"./src/css/main.css\");\n\nvar _main2 = _interopRequireDefault(_main);\n\nvar _index = __webpack_require__(/*! ./css/index.scss */ \"./src/css/index.scss\");\n\nvar _index2 = _interopRequireDefault(_index);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar a = \"hello\";\nvar box = document.getElementById(\"box\");\nbox.innerHTML = \"fellow23\";\n\nvar foo = function foo(name, age) {\n  var aaa = name;\n};\n\n// $(\"body\").css(\"background\",\"blue\");\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 

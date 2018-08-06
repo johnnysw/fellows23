@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const glob = require('glob');
 const PurifyCSSPlugin = require('purifycss-webpack');
+const webpack = require('webpack');
 
 module.exports = {
   entry:"./src/index.js",
@@ -64,6 +65,9 @@ module.exports = {
     }),
     new PurifyCSSPlugin({
       paths: glob.sync(path.join(__dirname, 'src/*.html')),
+    }),
+    new webpack.ProvidePlugin({
+      $:'jQuery'
     })
   ],
   devServer:{

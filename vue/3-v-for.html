@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <!-- <li v-for="(items,key,index) in obj">
+       {{index}}-{{key}}:{{items}}
+      </li> -->
+      <li v-for="(items,index) in objArr">
+        <!-- {{items.name}}-{{items.age}}-{{items.school}} -->
+        <span v-for="item in items">
+            {{item}}
+        </span>
+      </li>
+    </ul>
+    <div>{{sortOjb}}</div>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el:"#app",
+      data:{
+        arr:[1,2,3,4,5,6],
+        num:10,
+        obj:{
+          name:"xiaoming",
+          age:"12",
+          school:"linda"
+        },
+        objArr:[
+          {
+            name:"xiaoming",
+            age:"12",
+            school:"linda"
+          },
+          {
+            name:"xiaohong",
+            age:"20",
+            school:"heida"
+          },
+          {
+            name:"lisi",
+            age:"19",
+            school:"ligong"
+          }
+        ]
+      },
+      computed:{
+        sortOjb(){
+          return this.num + 5
+        }
+      }
+    })
+
+
+    // var obj = {
+    //   objArr:[
+    //       {
+    //         name:"xiaoming",
+    //         age:12,
+    //         school:"linda"
+    //       },
+    //       {
+    //         name:"xiaohong",
+    //         age:20,
+    //         school:"heida"
+    //       },
+    //       {
+    //         name:"lisi",
+    //         age:19,
+    //         school:"ligong"
+    //       }
+    //     ]
+    // }
+
+    // obj.objArr.sort(function(a,b){
+    //   return b.age - a.age 
+    // })
+    // console.log(obj);
+    
+  </script>
+</body>
+</html>
