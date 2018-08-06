@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .div1{
+      width: 200px;
+      height: 200px;
+      background: red;
+    }
+    .div2{
+      width: 100px;
+      height: 100px;
+      background:blue;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <input type="button" @click="test(2,$event)" value="add">
+    <div>{{num}}</div>
+    <div @click.once="div1($event)" class="div1">
+      <div @click.stop="div2($event)" class="div2"></div>
+    </div>
+    <a href="http://www.baidu.com" @click.prevent='defaul($event)'>baidu</a>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+       num:0
+      },
+      methods:{
+        test(key,e){
+          this.num+=key; 
+          console.log(e);
+        },
+        div1(e){
+          console.log("div1");
+        },
+        div2(e){
+          console.log("div2");
+          // e.stopPropagation();
+        } ,
+        defaul(e){
+          // e.preventDefault();
+        }
+      }
+    })
+  </script>
+</body>
+</html>

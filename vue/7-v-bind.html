@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .active{
+      color: red;
+    }
+    .box{
+      font-weight: bolder;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- <div v-bind:class="{active:isadd}">hello world</div> -->
+    <div v-bind:class="[classa,classb]">hello world</div>
+    <!-- <img v-bind:src="sr" alt=""> -->
+    <div :style="{fontSize: fsize+'px'}">fellow23</div>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+       isadd:true,
+       sr:"https://cn.vuejs.org/images/logo.png",
+       classa:"active",
+       classb:"box",
+       fsize:30,
+      }
+    })
+  </script>
+</body>
+</html>
