@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .active{
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="name"><input type="number" v-model.number="time"><button @click="add">添加</button></br>
+    <input type="text" v-model="searchVal"><button @click="search">搜索</button>
+    <table>
+      <thead>
+        <th>选择</th>
+        <th>代办事项</th>
+        <th>代办用时</th>
+        <th>操作</th>
+      </thead>
+      <tbody>
+        <tr :class="{active:item.isActive}" v-for="(item, index) in infoList" :key="index" @click="checkLine(item)">
+          <td><input type="checkbox" :value="item.id" v-model="clist"></td>
+          <td>{{item.info}}</td>
+          <td>{{item.time}}</td>
+          <td><button @click = "delSingle(item.id)">删除</button></td>
+        </tr>
+        <tr>
+          <td>
+            <button @click="delCheck">删除选中</button>
+          </td>
+          <td>总用时</td>
+          <td colspan="2">{{sum}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    new Vue({
+      el:"#app",
+      methods: {
+        delCheck(){
+          this.infoList.forEach(item =>{
+            if(item.isActive){
+              this.delSingle(item.id);
+            }
+          })
+        },
+        delSingle(id){
+          this.infoList = this.infoList.filter((val,index)=>{
+            if(val.id!=id){
+              return val;
+            }
+          })
+        },
+        checkLine(item){
+          item.isActive = !item.isActive;
+        },
+        search(){
+          this.infoList = this.infoList.filter((val,index)=>{
+            if(val.info.includes(this.searchVal)){
+              return val;
+            }
+          })
+        },
+        add(){
+          this.infoList.push({
+            info:this.name,
+            time:this.time,
+            isActive:false,
+            id:this.maxId++
+          });
+          this.name=this.time = "";
+        }
+      },
+      computed:{
+        clist(){
+          let thisArr = [];
+          this.infoList.forEach(item => {
+            if(item.isActive){
+              thisArr.push(item.id);
+            }
+          });
+          return thisArr;
+        },
+        sum(){
+          let thisSum = 0;
+          this.infoList.forEach(item => {
+            if(item.isActive){
+              thisSum+=item.time;
+            }
+          });
+          return thisSum;
+        }
+      },
+      data:{
+        checkList:[],
+        searchVal:"",
+        name:"",
+        time:"",
+        maxId:6,
+        infoList:[
+            {
+                id:0,
+                isActive:false,
+                info:'上课',
+                time:2
+            },{
+                id:1,
+                isActive:false,
+                info:'吃饭',
+                time:1
+            },{
+                id:2,
+                isActive:false,
+                info:'午休',
+                time:1
+            },{
+                id:3,
+                isActive:false,
+                info:'篮球',
+                time:2
+            },{
+                id:4,
+                isActive:false,
+                info:'聚会',
+                time:3
+            },{
+                id:5,
+                isActive:false,
+                info:'上课',
+                time:2
+            },
+        ],
+      }
+    })
+  </script>
+</body>
+</html>

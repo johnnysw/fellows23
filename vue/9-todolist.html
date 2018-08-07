@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .active{
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div>
+        <input type="text" placeholder="搜索" v-model="searchVal"><input type="button" value="搜索" @click="search">
+    </div> 
+    <div>
+      <input type="text" placeholder="名称" v-model="name"><input type="number" placeholder="价格" v-model.number="price"><input type="button" @click="add" value="添加">
+    </div>
+    <table>
+      <thead>
+        <th>选择</th>
+        <th>商品名称</th>
+        <th>商品价格</th>
+        <th>操作</th>
+      </thead>
+      <tbody>
+        <tr :class="{active:item.isSelected}" v-for="(item, index) in productList" @click="checkLine(item)" :key="index">
+          <td><input type="checkbox" :value="item.id" v-model="chek"></td>
+          <td>{{item.name}}</td>
+          <td>{{item.price}}</td>
+          <td><input type="button" value="删除" @click="delsingle(item.id)"></td>
+        </tr>
+        <tr>
+          <td><button @click="delcheck">删除选中</button></td>
+          <td colspan="3">价格：{{sum}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+        id:6,
+        name:"",
+        price:0,
+        searchVal:"",
+        checkList:[],
+        productList: [{
+            id:"1",
+            name: '衣服',
+            price: 123,
+            isSelected: false,
+        }, {
+            id:"2",
+            name: '裤子',
+            price: 456,
+            isSelected: false,
+        }, {
+            id:"3",
+            name: '鞋',
+            price: 444,
+            isSelected: false,
+        }, {
+            id:"4",
+            name: '帽子',
+            price: 666,
+            isSelected: false,
+        }, {
+            id:"5",
+            name: '手套',
+            price: 88,
+            isSelected: false,
+        }],
+      },
+      methods: {
+        checkLine(obj){
+          obj.isSelected = !obj.isSelected
+        },
+        add(){
+          this.productList.push({
+            id:this.id++,
+            name:this.name,
+            price:this.price,
+            isSelected:false
+          })
+        },
+        search(){
+          let newArr = this.productList.filter(item =>{
+            if(item.name.includes(this.searchVal)){
+              return item;
+            }
+          })
+          this.productList = newArr;
+        },
+        delsingle(id){
+          let newArr = this.productList.filter(item =>{
+            if(item.id!=id){
+              return item
+            }
+          })
+          this.productList = newArr;
+        },
+        delcheck(){
+          this.productList.forEach(item =>{
+            if(item.isSelected){
+              this.delsingle(item.id);
+            }
+          })
+        }
+      },
+      computed:{
+        chek(){
+          let arr = [];
+          this.productList.forEach(val => {
+            if(val.isSelected){
+              arr.push(val.id);
+            }
+          });
+          return arr;
+        },
+        sum(){
+          let thisNum = 0;
+          this.productList.forEach(val => {
+            if(val.isSelected){
+              thisNum+=val.price;
+            }
+          });
+          return thisNum;
+        }
+      }
+    })
+
+    
+  </script>
+</body>
+</html>
