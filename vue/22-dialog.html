@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .dialog-bg{
+      position: fixed;
+      top:0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: rgba(0,0,0,.3);
+    }
+    .dialog-content{
+      position: absolute;
+      border: 1px solid #000;
+      width: 400px;
+      height: 300px;
+      left: 50%;
+      top:50%;
+      transform: translate(-50%,-50%);
+      z-index: 1;
+    }
+    .dialog-header{
+      height: 50px;
+      background: #000;
+      color: #fff;
+      line-height: 50px;
+      padding:0 10px;
+    }
+    .close{
+      float: right;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <button @click="loginIsShow = true">登录</button>
+    <button @click="registerIsShow = true">注册</button>
+    <my-dialog v-show="loginIsShow" v-on:close="close">
+      <span slot="title">登录</span>
+      <div slot="content">
+        用户名<input type="text" placeholder="用户名">
+        <button>登录</button>
+      </div>
+    </my-dialog>
+    <my-dialog v-show="registerIsShow" v-on:close="registerIsShow=false">
+        <span slot="title">注册</span>
+        <div slot="content">
+          用户名<input type="text" placeholder="用户名">
+          <button>注册</button>
+        </div>
+      </my-dialog>
+  </div>
+  <template id="dialog-temp">
+    <div>
+      <div class="dialog-bg">
+        <div class="dialog-content">
+          <div class="dialog-header">
+            <slot name="title">登录</slot>
+            <span class="close" @click="$emit('close')">X</span>
+          </div>
+          <div class="dialog-inner">
+            <slot name="content"></slot>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+  <script src="vue.js"></script>
+  <script>
+    Vue.component("my-dialog",{
+      template:"#dialog-temp"
+    })
+    new Vue({
+      el:"#app",
+      data:{
+        loginIsShow:false,
+        registerIsShow:false
+      },
+      methods:{
+        close(){
+          this.loginIsShow = false
+        }
+      }
+    })
+  </script>
+</body>
+</html>
