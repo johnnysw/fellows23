@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <com1 :co1="msg" @click.native="add"></com1> -->
+    <com1 :co1="msg" @add1="add"></com1> 
+    {{num}}
+  </div>
+  <template id="com1">
+    <div>
+      <button @click="$emit('add1')">add</button>
+      <h1>com1 {{co1}}</h1>
+      <com2 :co2="co1"></com2>
+    </div>
+  </template>
+  <template id="com2">
+      <h1>com2{{co2}}</h1>
+    </template>
+  <script src="vue.js"></script>
+  <script>
+    Vue.component("com1",{
+      template:"#com1",
+      props:['co1']
+    })
+    Vue.component("com2",{
+      template:"#com2",
+      props:['co2']
+    })
+    new Vue({
+      el:"#app",
+      data:{
+        num:0,
+        msg:"hello world",
+        msg2:"hello fellow23"
+      },
+      methods: {
+        add(){
+          this.num++
+        }
+      }
+    })
+  </script>
+</body>
+</html>
