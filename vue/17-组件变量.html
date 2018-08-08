@@ -8,12 +8,23 @@
 </head>
 <body>
   <div id="app">
+    <comp1></comp1>
   </div>
   <script src="vue.js"></script>
   <script>
-    
+    Vue.component("comp1",{
+      template:`<h1>hello{{msg2}}</h2>`,
+      data(){
+        return{
+          msg2:"fellow23"
+        }
+      }
+    })
     new Vue({
       el:"#app",
+      data:{
+        msg:"world"
+      }
     })
   </script>
 </body>

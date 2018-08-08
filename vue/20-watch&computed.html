@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+      <div id="demo">{{firstName}}+{{lastName}}={{ fullName }}</div>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#demo',
+      data: {
+        firstName: 'Foo',
+        lastName: 'Bar',
+        // fullName: 'Foo Bar'
+      },
+      watch: {//一个变量影响多个值
+        firstName(val) {
+          this.fullName = val + ' ' + this.lastName
+        },
+        lastName(val) {
+          this.fullName = this.firstName + ' ' + val
+        }
+      },
+      computed:{//多个变量影响一个值
+        fullName(){
+          return this.firstName + this.lastName;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

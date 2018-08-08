@@ -8,36 +8,45 @@
 </head>
 <body>
   <div id="app">
-    <fellow>
-      <!-- <span>{{name}}</span> -->
-    </fellow>
+    <fellow></fellow>
   </div>
 
   <template id="comw">
-    <div>
       <div>
-        <slot>默认名</slot>
-      </div> 
-      <div>age</div> 
-      <div>school</div> 
-      <button></button>
-    </div>
-  </template>  
+        <div>
+          <slot>默认名</slot>
+        </div> 
+        <div>age</div> 
+        <div>school</div> 
+        <button>{{tttt}}</button>
+        <!-- <test2></test2> -->
+      </div>
+    </template>  
 
   
   <script src="vue.js"></script>
   <script>
     
     
-    new Vue({
+    let tset = new Vue({
       el:"#app",
       data:{
-        name:"xiaoming"
+        name:"xiaoming",
+        searchText:0
       },
       components: {
         fellow:{
-          template:"#comw"
+          data(){
+            return{
+              tttt:"abcd"
+            }
+          },
+          template:"#comw",
+          props: ['ast']
         },
+        test2:{
+          template:`<h1>test2</h1>`
+        }
       },
       methods: {
         clos(){
@@ -50,6 +59,7 @@
         }
       }
     })
+    console.log(tset);
   </script>
 </body>
 </html>

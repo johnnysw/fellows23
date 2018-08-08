@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="app">
+        <test1 v-bind:nownum="num" v-bind:nowage="age" @click.native="add" @adds="add"></test1>
+    </div>
+    <hr>
+    
+    <script type="text/x-template" id="tem-3">
+        <div>
+            <button @click="$emit('adds')">add</button>
+            <h3>three</h3>
+            <p>{{nownum}}</p>
+            <test2 v-bind:agnum="nownum" v-bind:agage="nowage"></test2>
+        </div>
+    </script>
+    <script type="text/x-template" id="tem-4">
+        <div>
+            <h4>four</h4>
+            <p>{{agnum}}</p>
+            age:<span>{{agage}}</span>
+        </div>
+    </script>
+    <!-- <template id="tem-3">
+        <div>
+            <button @click="$emit('adds')">add</button>
+            <h3>three</h3>
+            <p>{{nownum}}</p>
+            <test2 v-bind:agnum="nownum" v-bind:agage="nowage"></test2>
+        </div>
+    </template> -->
+    <!-- <template id="tem-4">
+        <div>
+            <h4>four</h4>
+            <p>{{agnum}}</p>
+            age:<span>{{agage}}</span>
+        </div>
+    </template> -->
+
+    <script src="vue.js"></script>
+    <script>
+       
+        new Vue({
+            el:"#app",
+            data:{
+                num:"20",
+                age:"二十",
+                name:"intest"
+            },
+            methods:{
+                add(){
+                    this.num++;
+                }
+            },
+            components:{
+                intest:{
+                    template:"#tem-2"
+                },
+                test2:{
+                    template:"#tem-4",
+                    props:["agnum","agage"],
+
+                },
+                test1:{
+                    template:"#tem-3",
+                    props:["nownum","nowage"],
+                    components:{
+                    }
+                }
+                
+            }
+
+        });
+       
+    </script>
+</body>
+</html>
