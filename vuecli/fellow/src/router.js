@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Connect from './views/Connect.vue'
 import ConnectCom1 from '@/components/ConnectCom1.vue'
 import ConnectCom2 from '@/components/ConnectCom2.vue'
+import ErrorPage from '@/views/404.vue'
 
 Vue.use(Router)
 
@@ -19,7 +20,12 @@ export default new Router({
     {
       path: '/about',
       name: 'about',
-      component: () => import('./views/About.vue')//懒加载
+      component: () => import('./views/About.vue'),//懒加载
+      // beforeEnter(to,from,next){
+      //   // console.log(to);
+      //   // console.log(from);
+      //   next();
+      // }
     },
     {
       path: '/connect',
@@ -50,6 +56,10 @@ export default new Router({
       path:'/aliashome',
       component:Home,
       alias:"/homealias"
+    },
+    {
+      path:'*',
+      component:ErrorPage
     }
   ]
 })
