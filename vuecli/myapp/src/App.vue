@@ -1,20 +1,35 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div>
+    <navigation :navTitle="propsTitle"></navigation>
+    <router-view @routerEmit='changeRouter'/>
   </div>
 </template>
+<script>
+import navigation from '@/components/public/Navigation.vue'
+export default {
+  data(){
+    return{
+      propsTitle:"music"
+    }
+  },
+  components:{
+    navigation
+  },
+  methods:{
+    changeRouter(title){
+      this.propsTitle=title
+    }
+  }
+}
+</script>
 
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+.container{
+  padding:1rem 0;
 }
 </style>

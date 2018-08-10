@@ -3,7 +3,7 @@
     <h1>This is an about page</h1>
     <div>
       <h1>局部方法</h1>
-      <button @click="add">加一</button>
+      <button @click="add(3)">加一</button>
       <button @click="reduce">减一</button>
       {{num}}
     </div>

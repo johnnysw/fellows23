@@ -1,10 +1,14 @@
 import Vue from 'vue'
+import './plugins/axios'
 import App from './App.vue'
 import router from './router'
 import store from './store'
 
-Vue.config.productionTip = false
+import '@/assets/js/rem.js'
+import '@/assets/css/reset.css'
 
+Vue.config.productionTip = false
+global.API_PROXY = 'https://bird.ioliu.cn/v2?url=';
 new Vue({
   router,
   store,
