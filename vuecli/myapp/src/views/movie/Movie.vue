@@ -40,6 +40,7 @@ export default {
   },
   methods:{
     getData(){
+      // https://api.myjson.com/bins/1a1xac
       axios.get(API_PROXY+'https://api.douban.com/v2/movie/in_theaters?start='+this.datas.length+'&count=10')
       .then((response)=> {
         this.datas =this.datas.concat(response.data.subjects);
