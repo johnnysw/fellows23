@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      border: 1px solid #000;
+      width: 490px;
+      height: 170px;
+      margin:200px auto;
+      position: relative;
+    }
+    .img-bar li{
+      list-style: none;
+      position: absolute;
+      top: 0;
+    }
+    .btn-bar{
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+    .btn-bar li{
+      width: 20px;
+      height: 20px;
+      background: #F90;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 20px;
+      color: #fff;
+      margin-left: 5px;
+      list-style: none;
+      float: left;
+    } 
+    .btn-bar .active{
+      background: red;
+    }
+    .fade-enter-active,.fade-leave-active{
+      transition: all 1s ease;
+    }
+    .fade-enter{
+      transform: translateX(100%);
+    }
+    .fade-leave-to{
+      transform: translateX(-100%);
+    }
+    /* .fade-enter-to{
+
+    } */
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="box" @mouseover="stop" @mouseout="play">
+        <transition-group name="fade" class="img-bar" tag="ul">
+            <li v-show="index == nowIndex" v-for="(item,index) in imgList" :key="index+'il'">
+              <img :src="'img/'+item+'.jpg'" alt="">
+            </li>
+        </transition-group>
+      <ul class="btn-bar">
+        <li @mouseover="change(index)" :class='{active:index == nowIndex}' v-for="(item,index) in imgList" :key='index+"bl"'>{{index+1}}</li>
+      </ul>
+    </div>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    new Vue({
+      el:'#app',
+      data:{
+        nowIndex:0,
+        timer:null,
+        isDone:false,
+        imgList:[
+          '01',
+          '02',
+          '03',
+          '04',
+          '05',
+        ]
+      },
+      mounted() {
+        this.play()
+      },
+      methods:{
+        change(index){
+          // if(this.isDone){
+            this.nowIndex = index
+          // }
+        },
+        stop(){
+          clearInterval(this.timer);
+        },
+        play(){
+          
+          this.timer=setInterval(()=>{
+            if(this.nowIndex == this.imgList.length-1){
+              this.nowIndex = 0;
+            }else{
+              this.nowIndex++
+            }
+            
+          },1500)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

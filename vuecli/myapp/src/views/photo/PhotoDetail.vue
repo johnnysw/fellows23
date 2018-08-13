@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>detail{{$route.params.id}}</h1>
+    <!-- <h1>detail{{$route.params.id}}</h1> -->
     <v-touch v-on:swipeleft="onSwipeLeft" v-on:tap="onSwipeTap" v-on:swiperight="onSwipeRight" class="content" :style="styleobj"></v-touch>
   </div>
 </template>
@@ -28,14 +28,18 @@ export default {
   },
   methods:{
     onSwipeLeft(){
-      this.imgid--
+      // this.imgid--
+      console.log('left');
+      
       
     },
     onSwipeRight(){
-      this.imgid++
+      // this.imgid++
+      console.log('right');
     },
     onSwipeTap(){
-      this.$router.go(-1)
+      // this.$router.go(-1)
+      console.log('tap');
       
     }
   }

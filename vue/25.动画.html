@@ -9,7 +9,7 @@
    
     .fade-enter-active, .fade-leave-active {
       transition: opacity 5s ease;
-      animation: test 2s ease;
+      animation: test 1s ease;
     }
     .fade-enter, .fade-leave-to{ 
       opacity: 0;
@@ -33,7 +33,7 @@
           <button v-on:click="show = !show">
             Toggle
           </button>
-          <transition type="animation" name="fade" enter-active-class="test">
+          <transition v-on:enter-cancelled="enterCancelled" type="animation" name="fade" enter-active-class="test">
             <p v-show="show">hello</p>
           </transition>
         </div>
@@ -44,6 +44,12 @@
       el:"#app",
       data:{
         show:true
+      },
+      methods:{
+        enterCancelled(){
+          console.log('enterCancelled');
+          
+        }
       }
     })
   </script>

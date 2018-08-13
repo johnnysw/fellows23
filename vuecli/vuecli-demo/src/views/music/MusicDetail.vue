@@ -9,7 +9,7 @@
 </template>
 <script>
 import aplayer from 'vue-aplayer'
-import Axios from '../../../../myapp/node_modules/axios';
+import axios from 'axios';
 export default {
   components:{
     aplayer
