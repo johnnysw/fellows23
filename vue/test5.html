@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+    .box{
+      border: 1px solid #000;
+      width: 490px;
+      height: 170px;
+      margin:100px auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .imgbar li{
+      position: absolute;
+      top: 0;
+      list-style: none;
+    }
+    .btn{
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+    .btn li{
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      margin-left: 5px;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 10px;
+      font-weight: bolder;
+      background: #F90;
+      float: left;
+      list-style: none;
+    }
+    .btn .active{
+      background: red;
+    }
+    .list-enter-active,.list-leave-active{
+      transition: all 1s ease
+    }
+    .list-enter{
+      transform: translateX(100%)
+    }
+    .list-leave-to{
+      transform: translateX(-100%)
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="box" @mouseover='stop' @mouseout='play'>
+      <transition-group name="list" class="imgbar" tag="ul">
+        <li v-show="nowIndex == index" v-for="(item,index) in imgList" :key='index+"il"'>
+          <img :src="'img/'+item+'.jpg'" alt="">
+        </li>
+      </transition-group>
+      <div class="btn">
+        <ul>
+          <li @mouseover="change(index)" :class="{active:nowIndex == index}" v-for="(item,index) in imgList">{{index+1}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    new Vue({
+      mounted() {
+        this.play();
+      },
+      methods:{
+        stop(){
+          clearInterval(this.timer);
+        },
+        change(index){
+          this.nowIndex = index;
+        },
+        play(){
+          this.timer = setInterval(()=>{
+            if(this.nowIndex == 4){
+              this.nowIndex = 0;
+            }else{
+              this.nowIndex++;
+            }
+          },1000)
+        }
+      },
+      el: "#app",
+      data: {
+        nowIndex :0,
+        timer:null,
+        imgList: [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05"
+        ]
+      }
+    })
+  </script>
+</body>
+
+</html>

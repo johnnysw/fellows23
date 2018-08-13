@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: all 1s ease;
+  }
+
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
+  .box{
+    position: relative;
+  }
+  button {
+    top: 0;
+    position: absolute;
+  }
+</style>
+
+<body>
+  <div id="app">
+    <button @click='isEditing=!isEditing'>change</button>
+    <br>
+    <dir class="box">
+      <transition name='fade' mode='out-in'>
+        <button v-if="isEditing" key="save">
+          Save
+        </button>
+        <button v-else key="edit">
+          Edit
+        </button>
+      </transition>
+    </dir>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        isEditing: true
+      }
+    })
+  </script>
+</body>
+
+</html>

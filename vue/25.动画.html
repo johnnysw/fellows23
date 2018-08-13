@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+   
+    .fade-enter-active, .fade-leave-active {
+      transition: opacity 5s ease;
+      animation: test 2s ease;
+    }
+    .fade-enter, .fade-leave-to{ 
+      opacity: 0;
+    }
+    @keyframes test{
+      0%{
+        font-size:10px;
+      }
+      50%{
+        font-size: 50px;
+      }
+      100%{
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+      <div id="demo">
+          <button v-on:click="show = !show">
+            Toggle
+          </button>
+          <transition type="animation" name="fade" enter-active-class="test">
+            <p v-show="show">hello</p>
+          </transition>
+        </div>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+        show:true
+      }
+    })
+  </script>
+</body>
+</html>
