@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <ul>
-        <li @click="$router.push({name:'photodetail',params:{id:index}})" v-for="(item,index) in dataList" :key="index+'dl'">
+        <li @click="goDetail(index)" v-for="(item,index) in dataList" :key="index+'dl'">
           <img :src="item.src" alt="">
         </li>
       </ul>
@@ -11,7 +11,7 @@
 </template>
 <script>
 export default {
-  created () {
+  mounted () {
     this.$emit('routerEmit', 'photo');
     this.getData();
   },
@@ -24,11 +24,16 @@ export default {
     getData(){
       axios('./data/photodata.json')
       .then((res)=>{
-        this.dataList = res.data.photoData
+        this.dataList = res.data.photoData;
+        this.$store.commit('savePhotoList',this.dataList)
       })
       .catch(()=>{
 
       })
+    },
+    goDetail(index){
+      this.$store.commit('changeIndex',index+1);
+      this.$router.push('/photodetail')
     }
   }
   

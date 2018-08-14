@@ -89,6 +89,7 @@ export default {
     height: 1rem;
     width: 100%;
     position: fixed;
+    z-index: 10;
     color: #fff;
   }
   header{

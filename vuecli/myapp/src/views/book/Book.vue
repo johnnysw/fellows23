@@ -31,7 +31,7 @@ export default {
   text-align: center;
 }
 .slide1 {
-  background: url('../../../public/img/01.jpg') center/cover;
+  background: url('../../assets/img/01.jpg') center/cover;
   color: #fff;
 }
 

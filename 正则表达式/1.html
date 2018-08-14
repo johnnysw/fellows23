@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let test = 'bcd'
+    let str2='2018-08-14'
+    // let b = RegExp('bcd')
+    let b = RegExp(test)
+    let a = /abc/;
+    let c=/(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/
+    let str = 'abcdEF';  
+    console.log(a.test(str));
+    console.log(a.exec(str));
+    console.log(b.test(str));
+    console.log(b.exec(str));
+    console.log(str2.replace(c,"$1-$3-$2"));
+    console.log(c.exec(str2));
+    
+    
+    
+    
+    
+  </script>
+</body>
+</html>
