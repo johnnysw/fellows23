@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <form action="#">
+      <input type="email" placeholder="请输入邮箱">
+      <input type="url" placeholder="请输入网址">
+      <input type="number" placeholder="请输入数字">
+      <input type="text" id="num" placeholder="测试">
+      <button>提交</button>
+
+    </form>
+  </div>
+  <script>
+    let num = document.getElementById("num");
+    
+    num.onkeydown=function(e){
+      console.log(e);
+      let reg=/\d|Backspace/
+      if(reg.test(e.key)){
+        return true
+      }else{
+        return false;
+      }
+    }
+
+
+
+
+    // num.onkeyup=function(e){
+    //   let reg=/\D/
+    //   let thisVal = this.value.replace(e.key,"");
+    //   if(reg.test(e.key)){
+    //     this.value = thisVal
+    //   }
+    //   console.log(e);
+      
+    // }
+    
+    // num.onkeydown=function(e){
+      
+      
+    //   // console.log(e);
+    //   // let reg2=/Backspace/
+    //   // console.log(reg2.test(e.key));
+      
+    //   let reg=/\d|Backspace/
+    //   let thisVal = this.value.replace(e.key,"");
+    //   if(!reg.test(e.key)){
+    //     return false
+    //   }
+    //   console.log(e);
+    // }
+  </script>
+</body>
+</html>

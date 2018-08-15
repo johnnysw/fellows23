@@ -26,7 +26,7 @@ export default {
         let thisObj = {};
         this.musicList = res.data.musicData;
         for(let i=0;i<this.musicList.length;i++){
-          this.musicList[i].lrc = location.origin+"/"+this.musicList[i].lrc
+          this.musicList[i].lrc = location.origin+location.pathname+this.musicList[i].lrc
         };
         this.isReady = true;
       }).catch(()=>{
